@@ -1,0 +1,1949 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102b4e">
+  <title>MathMate 9 | Chatbot học tập Toán 9 – Kết nối tri thức</title>
+  <style>
+  :root{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;color:#172a43;background:#f1f5fb;--navy:#102b4e;--ink:#172a43;--muted:#677990;--blue:#2563eb;--teal:#079c91;--line:#e4eaf2;--paper:#fff;--mist:#f5f8fc;--shadow:0 12px 36px rgba(15,42,76,.075)}
+  *{box-sizing:border-box}body{margin:0}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #6ee7e5;outline-offset:2px}
+  #app{display:grid;grid-template-columns:268px minmax(370px,1fr) 288px;grid-template-rows:76px minmax(0,1fr);height:100dvh;min-height:550px;max-width:1920px;margin:auto;background:var(--paper);box-shadow:0 0 44px #dce7f3}
+  .topbar{grid-column:1/4;display:flex;align-items:center;padding:0 22px;gap:15px;background:var(--navy);color:#fff;z-index:12;position:relative}.brand-icon{height:43px;width:43px;background:linear-gradient(135deg,#68e4d7,#35a5fb);display:grid;place-items:center;color:#0b2c4e;border-radius:14px;font-weight:950;font-size:20px;box-shadow:0 8px 20px #031c3470;flex:none}.brand-title{font-size:18px;font-weight:850;line-height:1.15}.brand-sub{font-size:11px;opacity:.72;margin-top:4px}.top-right{margin-left:auto;display:flex;gap:9px;align-items:center}.top-pill{border:1px solid #ffffff2e;background:#ffffff12;border-radius:99px;color:#dceefe;padding:9px 13px;font-size:12px;font-weight:650;white-space:nowrap}.top-pill span{display:inline-block;background:#3ad5bd;width:8px;height:8px;border-radius:50%;margin-right:7px}.icon-btn{width:38px;height:38px;border:1px solid #ffffff35;background:#ffffff10;border-radius:11px;color:#fff;display:grid;place-items:center;font-size:19px}.menu-btn{display:none}
+  .sidebar{background:#f8fbff;border-right:1px solid var(--line);min-width:0;overflow:auto;padding:21px 14px 18px}.side-heading{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:1.35px;color:#8190a3;margin:0 9px 14px}.search-wrap{position:relative;margin-bottom:15px}.search-wrap span{position:absolute;left:12px;top:11px;font-size:15px;color:#94a3b8}.search-wrap input{width:100%;background:white;border:1px solid #dee8f3;border-radius:12px;padding:11px 12px 11px 35px;font-size:12.8px;outline:none}.book-heading{display:flex;align-items:center;gap:8px;margin:20px 9px 10px;color:#244c72;font-size:12px;font-weight:850}.book-marker{width:9px;height:9px;background:#20a591;border-radius:3px}.book-marker.orange{background:#f28a46}.chap-title{border:0;background:transparent;color:#65788f;display:flex;justify-content:space-between;gap:7px;text-align:left;width:100%;font-weight:780;font-size:12px;padding:11px 8px 7px}.chap-title:hover{color:var(--blue)}.chap-title .count{font-size:10px;font-weight:650;background:#eaf0f8;padding:2px 7px;border-radius:99px;color:#8a9bae}.lesson-items{margin:0 0 9px;display:grid;gap:3px}.lesson-item{width:100%;display:flex;align-items:flex-start;gap:9px;text-align:left;border:0;background:transparent;color:#4e647e;padding:10px 10px;border-radius:11px;font-size:12px;line-height:1.3}.lesson-item:hover{background:#edf5fc}.lesson-item.active{background:#e3f4f2;color:#075d60;font-weight:760;box-shadow:inset 3px 0 #12a89c}.lesson-n{font-size:10px;flex:none;border:1px solid #dce5ed;border-radius:6px;padding:2px 5px;color:#8a97a7;font-weight:800}.lesson-item.active .lesson-n{color:#087e75;background:#ffffffa1}.tiny-done{margin-left:auto;flex:none;color:#0d9488}
+  .center{min-width:0;display:flex;flex-direction:column;background:radial-gradient(ellipse at 45% -10%,#ecf9ff 0,transparent 48%),white}.center-head{border-bottom:1px solid #edf1f7;padding:18px 27px 15px;flex:none;background:#fffffff0}.eyebrow{font-size:10px;font-weight:850;letter-spacing:1.6px;color:#04978e;margin-bottom:6px}.center-title-row{display:flex;align-items:center;gap:10px}.center-title{font-size:20px;line-height:1.25;font-weight:900;letter-spacing:-.5px;min-width:0;flex:1}.page-chip{font-size:11px;font-weight:700;padding:6px 9px;color:#326d8a;background:#ebf5fc;border-radius:8px;white-space:nowrap}.topic-caption{color:#778ba1;font-size:12px;margin-top:7px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.mode-tabs{display:flex;gap:6px;margin-top:15px;flex-wrap:wrap}.mode{padding:9px 13px;border:1px solid #e8eef6;background:white;border-radius:10px;color:#6a7d94;font-size:12px;font-weight:730}.mode.active{background:#e3f5f1;color:#077e78;border-color:#c7ebe6}.mode:hover{border-color:#7dc5cc}
+  .chat-scroll{flex:1;min-height:0;overflow-y:auto;padding:22px max(22px,5%) 28px;scroll-behavior:smooth}.date-rule{text-align:center;color:#9aa9ba;font-size:11px;font-weight:700;margin-bottom:21px}.msg{display:flex;gap:10px;max-width:96%;margin:0 0 19px;align-items:flex-start}.msg.user{margin-left:auto;flex-direction:row-reverse;max-width:88%}.avatar{border-radius:12px;height:33px;width:33px;display:grid;place-items:center;font-size:13px;color:#fff;font-weight:850;background:linear-gradient(135deg,#1fb9ae,#237dcc);flex:none;box-shadow:0 3px 8px #1a9b951f}.user .avatar{background:#25406d}.bubble{background:white;border:1px solid #e5edf5;border-radius:4px 17px 17px 17px;box-shadow:0 4px 16px #152e5210;padding:15px 16px;min-width:0;max-width:100%;font-size:13.3px;line-height:1.72;overflow-wrap:anywhere}.bubble .plain{white-space:pre-wrap}.user .bubble{background:#e7f1ff;border-color:#d8e9fc;border-radius:17px 4px 17px 17px;color:#1c467d}.msg-time{font-size:10px;color:#a5afbe;margin:5px 2px 0}.strong-title{font-size:14px;font-weight:870;color:#153451;margin-bottom:8px}.content-card{min-width:0;border-radius:13px;background:#f6faff;border:1px solid #e4effb;padding:14px 15px;margin:12px 0 4px}.content-card.teal{background:#effaf7;border-color:#d2efe5}.content-card.amber{background:#fffbef;border-color:#f8e8b7}.mini-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:900;color:#2884a9;margin-bottom:7px}.small-body{font-size:12.5px;line-height:1.68;white-space:pre-wrap}.steps{margin:0;padding-left:19px;font-size:12.5px;line-height:1.85}.steps li{margin:2px 0}.answer-box{background:#fff;border:1px solid #deebf5;border-radius:11px;padding:11px 13px;margin:10px 0 0}.answer-box input{width:100%;background:#fff;border:1px solid #d5e1ed;border-radius:9px;padding:11px 12px;font-size:13px;margin:9px 0 12px}.hint-line{padding:7px 10px;background:#fffaed;border:1px solid #f5e6b8;border-radius:8px;margin-top:8px;color:#826116;font-size:12px}.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.btn{border:0;border-radius:10px;background:#0d9389;color:#fff;font-weight:760;padding:9px 12px;font-size:11.5px;transition:.15s}.btn:hover{filter:brightness(.95)}.btn.secondary{background:#e8f3fc;color:#26719b}.btn.neutral{background:#f2f5fa;color:#65768a}.btn.warn{background:#fff3d6;color:#966b10}.option-btn{display:flex;text-align:left;align-items:flex-start;gap:10px;width:100%;border:1px solid #d9e5f2;background:white;border-radius:9px;padding:11px;margin:7px 0;color:#274767;font-size:12px;line-height:1.5}.option-btn:hover:not(:disabled){border-color:#35a4a0;background:#f1faf8}.option-btn.correct{background:#e4f8ed;border-color:#65cda2;color:#11683f}.option-btn.wrong{background:#fff0ee;border-color:#eaa39c;color:#b34439}.option-btn b{flex:none;background:#eaf1fa;border-radius:5px;padding:1px 6px;color:#6c8aa4}.badge-success{display:inline-flex;border-radius:7px;background:#d9f6e8;color:#08764a;font-weight:800;font-size:11px;padding:4px 8px}
+  .compose{border-top:1px solid #e9eef5;background:white;padding:13px max(22px,5%) 12px;flex:none}.quick-prompts{display:flex;gap:7px;overflow-x:auto;padding-bottom:11px;scrollbar-width:none}.quick-prompts::-webkit-scrollbar{display:none}.prompt{white-space:nowrap;padding:8px 12px;border:1px solid #dfeaf5;background:#f7fbff;color:#477394;border-radius:99px;font-size:11px;font-weight:750}.prompt:hover{background:#e7f6f5;color:#08796d;border-color:#b6e6dd}.composer-line{display:flex;gap:9px;align-items:flex-end}.composer-line textarea{min-height:44px;max-height:126px;resize:none;flex:1;padding:12px 14px;background:#f7f9fc;border:1px solid #dfe8f1;border-radius:13px;font-size:13px;line-height:1.5;outline:none}.send-btn{flex:none;background:linear-gradient(135deg,#18b4a1,#2381cf);width:45px;height:45px;border-radius:12px;border:0;color:white;font-size:21px;box-shadow:0 5px 13px #2285c03d}.foot-hint{display:flex;justify-content:space-between;gap:10px;color:#a0adbb;font-size:10px;margin-top:8px}.foot-hint strong{color:#698ea2}
+  .right{border-left:1px solid var(--line);background:#fcfdff;overflow:auto;padding:22px 19px}.right-top{text-transform:uppercase;letter-spacing:1.15px;font-weight:900;color:#8394a7;font-size:10px;margin-bottom:18px}.progress-wrap{background:#122e50;color:#fff;border-radius:18px;padding:20px;margin-bottom:22px;position:relative;overflow:hidden}.progress-wrap:after{content:"✦";position:absolute;right:-14px;top:-30px;font-size:110px;color:#ffffff12}.progress-label{font-size:11px;opacity:.75;font-weight:740}.progress-num{font-size:30px;font-weight:940;margin:6px 0}.progress-num span{font-size:13px;color:#a4c7dd;font-weight:650}.bar{height:8px;background:#426381;border-radius:40px;overflow:hidden;margin:12px 0 9px}.bar i{display:block;background:linear-gradient(90deg,#62e8c5,#69c7f3);height:100%;width:0%;border-radius:40px;transition:width .25s}.progress-description{font-size:11px;color:#bed2e3;line-height:1.6}.right-card{border-radius:14px;border:1px solid #e8eef5;background:#fff;padding:15px;margin:0 0 14px;box-shadow:0 3px 12px #224a7410}.right-card h3{font-size:12px;margin:0 0 10px;color:#2c4a69}.right-card p{font-size:11.5px;line-height:1.6;color:#708399;margin:0 0 9px}.right-card .right-link{width:100%;padding:9px 11px;text-align:left;border:1px solid #e5edf5;border-radius:9px;background:#f7faff;color:#31708f;font-size:11px;font-weight:720;margin:4px 0}.right-link:hover{background:#eaf8f6}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat-mini{background:#f5f9fd;border-radius:10px;padding:13px 9px;text-align:center}.stat-val{font-size:20px;font-weight:900;color:#127f91}.stat-key{font-size:10px;color:#7e91a6;margin-top:3px}.privacy{font-size:11px;line-height:1.7;color:#8b99aa;margin-top:16px}.side-overlay{display:none}.no-search{font-size:12px;color:#8d9aac;padding:10px}
+  .toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(15px);padding:11px 15px;background:#133955;color:white;box-shadow:var(--shadow);border-radius:10px;font-weight:650;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  body.night{background:#122239;--ink:#e4ebf6;--paper:#182b44;--line:#29415d;--mist:#203652;color:#e9f1ff}body.night #app{background:#172c44}body.night .sidebar,body.night .right{background:#14263d}body.night .center{background:#1b2f48}body.night .center-head,body.night .compose{background:#1a3049;border-color:#29415d}body.night .center-title,body.night .strong-title{color:#e4f2ff}body.night .bubble,body.night .right-card,body.night .answer-box{background:#213850;border-color:#33516b;color:#e7f1fc}body.night .content-card{background:#223c54;border-color:#395970}body.night .content-card.teal{background:#194239}body.night .content-card.amber,body.night .hint-line{background:#4b402a}body.night .mode,body.night .search-wrap input,body.night .composer-line textarea,body.night .prompt,body.night .option-btn,body.night .answer-box input{background:#22374f;color:#e5f0fc;border-color:#35516d}body.night .right-card h3{color:#d4eaff}body.night .user .bubble{background:#204a6c}body.night .lesson-item{color:#bfd0e2}body.night .lesson-item.active{background:#1a5050;color:#d4fbee}body.night .stat-mini{background:#2d4358}
+  @media(max-width:1150px){#app{grid-template-columns:244px minmax(390px,1fr)}.topbar{grid-column:1/3}.right{display:none}}
+  @media(max-width:730px){#app{grid-template-columns:1fr;grid-template-rows:65px minmax(0,1fr);min-height:100dvh}.topbar{grid-column:1;padding:0 13px;gap:10px}.brand-icon{height:38px;width:38px;border-radius:12px}.brand-title{font-size:15px}.brand-sub{font-size:10px}.top-pill{display:none}.menu-btn{display:grid}.sidebar{position:fixed;left:0;top:65px;bottom:0;width:min(315px,87vw);z-index:30;transform:translateX(-106%);transition:transform .22s;box-shadow:8px 0 25px #142a4030}.sidebar.open{transform:translateX(0)}.side-overlay.show{display:block;position:fixed;inset:65px 0 0;background:#07182a7d;z-index:20}.center{grid-row:2;min-height:0}.center-head{padding:14px 16px 11px}.center-title{font-size:16px}.topic-caption{font-size:11px}.eyebrow{font-size:9px}.mode-tabs{margin-top:11px}.mode{padding:8px 9px;font-size:11px}.chat-scroll{padding:18px 14px}.compose{padding:10px 12px 8px}.bubble{padding:12px;font-size:12.6px}.msg{max-width:100%}.msg.user{max-width:92%}.foot-hint{font-size:9px}.page-chip{font-size:10px;padding:5px}}
+  @media(prefers-reduced-motion:reduce){*,*:after,*:before{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menuBtn" title="Mở danh mục bài học" aria-label="Mở danh mục bài học">☰</button>
+    <div class="brand-icon" aria-hidden="true">∑</div>
+    <div><div class="brand-title">MathMate <span style="color:#74ead5">9</span></div><div class="brand-sub">Cùng em chinh phục Toán 9</div></div>
+    <div class="top-right"><div class="top-pill"><span></span>Hoạt động ngoại tuyến</div><button class="icon-btn" id="themeBtn" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện sáng/tối">☾</button></div>
+  </header>
+  <div id="sideOverlay" class="side-overlay"></div>
+  <aside class="sidebar" id="sidebar" aria-label="Danh mục 32 bài học">
+    <div class="side-heading"><span>Chương trình học</span><span>32 bài</span></div>
+    <label class="search-wrap"><span>⌕</span><input id="topicSearch" type="search" placeholder="Tìm bài học, nội dung…" aria-label="Tìm bài học"></label>
+    <div id="lessonNav"></div>
+  </aside>
+  <main class="center">
+    <section class="center-head"><div class="eyebrow" id="volLabel">TOÁN 9 • KẾT NỐI TRI THỨC</div><div class="center-title-row"><div class="center-title" id="currentTitle">Học Toán 9 cùng MathMate</div><div class="page-chip" id="pageChip">Tập 1 · Tr. 5</div></div><div class="topic-caption" id="topicCaption">Hỏi – hiểu – luyện tập – phản biện lời giải</div>
+      <div class="mode-tabs" role="group" aria-label="Chọn hoạt động"><button class="mode active" data-mode="learn">✦ Hỏi đáp</button><button class="mode" data-mode="practice">✎ Luyện tập</button><button class="mode" data-mode="debate">⚑ Phản biện AI</button></div>
+    </section>
+    <div id="chatScroll" class="chat-scroll" role="log" aria-live="polite" aria-relevant="additions text"><div class="date-rule">KHÔNG CẦN ĐĂNG NHẬP • KHÔNG CẦN INTERNET</div><div id="messages"></div></div>
+    <section class="compose" aria-label="Nhập nội dung trò chuyện">
+      <div class="quick-prompts" id="quickPrompts"></div>
+      <div class="composer-line"><textarea id="chatInput" rows="1" aria-label="Câu hỏi Toán 9" placeholder="Em muốn hỏi điều gì? Ví dụ: Giải x² - 5x + 6 = 0"></textarea><button id="sendBtn" class="send-btn" title="Gửi câu hỏi" aria-label="Gửi câu hỏi">➤</button></div>
+      <div class="foot-hint"><span><strong>Enter</strong> để gửi · <strong>Shift + Enter</strong> để xuống dòng</span><span>Kiến thức bám theo 2 tập SGK</span></div>
+    </section>
+  </main>
+  <aside class="right" aria-label="Tiến độ và hướng dẫn">
+    <div class="right-top">Góc học tập của em</div>
+    <div class="progress-wrap"><div class="progress-label">Bài có câu luyện tập làm đúng</div><div class="progress-num"><span id="lessonDone">0</span> <span>/ 32 bài</span></div><div class="bar"><i id="progressBar"></i></div><div class="progress-description" id="progressText">Chọn một bài học, luyện tập và chinh phục từng bước!</div></div>
+    <div class="stat-grid" style="margin-bottom:18px"><div class="stat-mini"><div class="stat-val" id="rightCorrect">0</div><div class="stat-key">Lượt trả lời đúng</div></div><div class="stat-mini"><div class="stat-val" id="rightDebate">0</div><div class="stat-key">Chương đã phản biện</div></div></div>
+    <div class="right-card"><h3>⚡ Bắt đầu nhanh</h3><button class="right-link" data-action="theory">📘 Tóm tắt kiến thức bài này</button><button class="right-link" data-action="example">🧩 Xem một ví dụ mẫu</button><button class="right-link" data-action="practice">✍️ Làm một bài luyện tập</button><button class="right-link" data-action="debate">🔍 Bắt lỗi lời giải của AI</button></div>
+    <div class="right-card"><h3>💡 Cách học hiệu quả</h3><p>1. Xem kiến thức trọng tâm.</p><p>2. Tự thử sức trước khi dùng nút <b>Gợi ý</b>.</p><p>3. So sánh kết quả và giải thích vì sao đúng.</p><p>4. Phản biện lời giải sai để tránh học máy móc.</p></div>
+    <div class="right-card"><h3>📁 Dữ liệu học tập</h3><p>Tiến độ lưu trên trình duyệt hiện tại.</p><button class="right-link" id="exportBtn">↓ Xuất tiến độ học tập (.json)</button><button class="right-link" id="resetBtn">↺ Đặt lại tiến độ</button><button class="right-link" id="clearBtn">⌫ Xóa đoạn trò chuyện</button></div>
+    <div class="privacy">Nội dung ôn tập được biên soạn theo chủ đề của SGK Toán 9 – Kết nối tri thức (tập một và tập hai). Ví dụ luyện tập được thiết kế riêng, không sao chép nguyên sách. Phiên bản này dùng kho kiến thức và quy tắc có sẵn, <b>chưa kết nối mô hình AI trực tuyến</b>.</div>
+  </aside>
+</div>
+<div class="toast" role="status" id="toast"></div>
+<script type="application/json" id="knowledgeBase">{
+  "chapters": [
+    {
+      "id": 1,
+      "vol": 1,
+      "title": "Phương trình và hệ hai phương trình bậc nhất hai ẩn",
+      "short": "Hệ phương trình",
+      "color": "#0d9488"
+    },
+    {
+      "id": 2,
+      "vol": 1,
+      "title": "Phương trình và bất phương trình bậc nhất một ẩn",
+      "short": "Bất phương trình",
+      "color": "#0d9488"
+    },
+    {
+      "id": 3,
+      "vol": 1,
+      "title": "Căn bậc hai và căn bậc ba",
+      "short": "Căn thức",
+      "color": "#0d9488"
+    },
+    {
+      "id": 4,
+      "vol": 1,
+      "title": "Hệ thức lượng trong tam giác vuông",
+      "short": "Lượng giác",
+      "color": "#0d9488"
+    },
+    {
+      "id": 5,
+      "vol": 1,
+      "title": "Đường tròn",
+      "short": "Đường tròn",
+      "color": "#0d9488"
+    },
+    {
+      "id": 6,
+      "vol": 2,
+      "title": "Hàm số y = ax² (a ≠ 0). Phương trình bậc hai một ẩn",
+      "short": "Hàm số \u0026 bậc hai",
+      "color": "#ea580c"
+    },
+    {
+      "id": 7,
+      "vol": 2,
+      "title": "Tần số và tần số tương đối",
+      "short": "Thống kê",
+      "color": "#ea580c"
+    },
+    {
+      "id": 8,
+      "vol": 2,
+      "title": "Xác suất của biến cố trong một số mô hình xác suất đơn giản",
+      "short": "Xác suất",
+      "color": "#ea580c"
+    },
+    {
+      "id": 9,
+      "vol": 2,
+      "title": "Đường tròn ngoại tiếp và đường tròn nội tiếp",
+      "short": "Đường tròn nâng cao",
+      "color": "#ea580c"
+    },
+    {
+      "id": 10,
+      "vol": 2,
+      "title": "Một số hình khối trong thực tiễn",
+      "short": "Hình khối",
+      "color": "#ea580c"
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "ch": 1,
+      "page": 5,
+      "title": "Khái niệm phương trình và hệ hai phương trình bậc nhất hai ẩn",
+      "know": "Phương trình ax + by = c (a, b không đồng thời bằng 0) có hai ẩn x, y. Một cặp (x; y) là nghiệm khi thay vào phương trình được đẳng thức đúng.",
+      "formula": "ax + by = c; nghiệm hệ phải thỏa mãn đồng thời cả hai phương trình.",
+      "steps": [
+        "Thay giá trị x, y đã cho vào từng phương trình.",
+        "Tính giá trị vế trái và so sánh với vế phải.",
+        "Với hệ, kết luận chỉ khi cả hai phương trình đều đúng."
+      ],
+      "example": {
+        "q": "Cặp (2; 3) có là nghiệm của x + y = 5 không?",
+        "solution": [
+          "Thay x = 2, y = 3.",
+          "Ta có 2 + 3 = 5.",
+          "Vậy (2; 3) là một nghiệm."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Với x = 4, phương trình x + y = 9 cho y bằng bao nhiêu?",
+          "ans": [
+            "5"
+          ],
+          "hints": [
+            "Thay x = 4 vào phương trình.",
+            "Ta được 4 + y = 9.",
+            "Lấy 9 − 4."
+          ],
+          "solution": "y = 5.",
+          "check": "number"
+        },
+        {
+          "q": "Cặp (1; 2) có thỏa mãn đồng thời x + y = 3 và 2x − y = 0 không? (có/không)",
+          "ans": [
+            "có",
+            "co"
+          ],
+          "hints": [
+            "Kiểm tra phương trình thứ nhất.",
+            "Kiểm tra phương trình thứ hai.",
+            "Cả hai phải đúng."
+          ],
+          "solution": "1 + 2 = 3 và 2·1 − 2 = 0 nên đáp án: có.",
+          "check": "text"
+        }
+      ],
+      "keys": "phương trình hai ẩn hệ phương trình nghiệm"
+    },
+    {
+      "id": 2,
+      "ch": 1,
+      "page": 11,
+      "title": "Giải hệ hai phương trình bậc nhất hai ẩn",
+      "know": "Có thể giải hệ bằng phương pháp thế hoặc phương pháp cộng đại số.",
+      "formula": "Phương pháp thế: biểu diễn một ẩn theo ẩn kia. Phương pháp cộng: nhân rồi cộng/trừ để khử một ẩn.",
+      "steps": [
+        "Chọn một phương pháp phù hợp.",
+        "Đưa về phương trình một ẩn và giải.",
+        "Tính ẩn còn lại, kiểm tra nghiệm."
+      ],
+      "example": {
+        "q": "Giải hệ x + y = 7; x − y = 1.",
+        "solution": [
+          "Cộng hai phương trình: 2x = 8 ⇒ x = 4.",
+          "Thay vào x + y = 7 ⇒ y = 3.",
+          "Nghiệm hệ là (4; 3)."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Giải hệ x + y = 7 và x − y = 1. Nhập x; y.",
+          "ans": [
+            "4;3"
+          ],
+          "hints": [
+            "Cộng hai phương trình.",
+            "2x = 8.",
+            "Thay x = 4 vào x + y = 7."
+          ],
+          "solution": "x = 4; y = 3.",
+          "check": "pair"
+        },
+        {
+          "q": "Giải hệ 2x + y = 8 và x − y = 1. Nhập x; y.",
+          "ans": [
+            "3;2"
+          ],
+          "hints": [
+            "Cộng hai phương trình: 3x = 9.",
+            "Suy ra x = 3.",
+            "Tính y = 8 − 2x."
+          ],
+          "solution": "x = 3; y = 2.",
+          "check": "pair"
+        }
+      ],
+      "keys": "giải hệ cộng đại số phương pháp thế"
+    },
+    {
+      "id": 3,
+      "ch": 1,
+      "page": 21,
+      "title": "Giải bài toán bằng cách lập hệ phương trình",
+      "know": "Bài toán có hai đại lượng chưa biết thường được mô hình hóa bằng hai phương trình.",
+      "formula": "Đặt x, y là hai ẩn; lập hệ theo các quan hệ; giải hệ; đối chiếu điều kiện.",
+      "steps": [
+        "Đặt ẩn kèm đơn vị và điều kiện.",
+        "Lập hai phương trình từ dữ kiện.",
+        "Giải hệ và trả lời theo ngữ cảnh."
+      ],
+      "example": {
+        "q": "Tổng của hai số là 18, số lớn hơn số bé 4 đơn vị. Tìm hai số.",
+        "solution": [
+          "Gọi x là số lớn, y là số bé.",
+          "Lập hệ x + y = 18; x − y = 4.",
+          "Suy ra x = 11; y = 7."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tổng hai số là 25, hiệu là 5. Nhập số lớn; số bé.",
+          "ans": [
+            "15;10"
+          ],
+          "hints": [
+            "Đặt x + y = 25.",
+            "Lập thêm x − y = 5.",
+            "Cộng hai phương trình."
+          ],
+          "solution": "Số lớn 15, số bé 10.",
+          "check": "pair"
+        },
+        {
+          "q": "Hai loại vé giá 20 và 30 nghìn đồng, mua 5 vé hết 120 nghìn. Nhập số vé 20 nghìn; số vé 30 nghìn.",
+          "ans": [
+            "3;2"
+          ],
+          "hints": [
+            "x + y = 5.",
+            "20x + 30y = 120.",
+            "Thay x = 5 − y."
+          ],
+          "solution": "3 vé giá 20 nghìn và 2 vé giá 30 nghìn.",
+          "check": "pair"
+        }
+      ],
+      "keys": "toán thực tế lập hệ bài toán có lời văn"
+    },
+    {
+      "id": 4,
+      "ch": 2,
+      "page": 26,
+      "title": "Phương trình quy về phương trình bậc nhất một ẩn",
+      "know": "Phương trình tích được giải bằng cách cho từng thừa số bằng 0. Với phương trình chứa ẩn ở mẫu, cần xác định điều kiện xác định và kiểm tra nghiệm.",
+      "formula": "A·B = 0 ⇔ A = 0 hoặc B = 0; mẫu số phải khác 0.",
+      "steps": [
+        "Tìm điều kiện xác định nếu có mẫu.",
+        "Phân tích thành tích hoặc quy đồng hợp lệ.",
+        "Giải rồi loại các giá trị vi phạm điều kiện."
+      ],
+      "example": {
+        "q": "Giải (x − 1)(x + 4) = 0.",
+        "solution": [
+          "x − 1 = 0 hoặc x + 4 = 0.",
+          "Suy ra x = 1 hoặc x = −4."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Giải x(x − 4) = 0. Nhập hai nghiệm, ngăn bằng dấu ;",
+          "ans": [
+            "0;4",
+            "4;0"
+          ],
+          "hints": [
+            "Áp dụng tính chất tích bằng 0.",
+            "x = 0 hoặc x − 4 = 0.",
+            "Giải phương trình thứ hai."
+          ],
+          "solution": "x = 0 hoặc x = 4.",
+          "check": "set"
+        },
+        {
+          "q": "Giải (x + 2)/(x − 1) = 0. Nhập nghiệm x.",
+          "ans": [
+            "-2"
+          ],
+          "hints": [
+            "Điều kiện x ≠ 1.",
+            "Phân thức bằng 0 khi tử số bằng 0.",
+            "x + 2 = 0."
+          ],
+          "solution": "x = −2, thỏa x ≠ 1.",
+          "check": "number"
+        }
+      ],
+      "keys": "phương trình tích phân thức điều kiện xác định"
+    },
+    {
+      "id": 5,
+      "ch": 2,
+      "page": 31,
+      "title": "Bất đẳng thức và tính chất",
+      "know": "Bất đẳng thức so sánh hai số hoặc hai biểu thức. Cộng cùng một số giữ chiều; nhân/chia cùng số âm đảo chiều.",
+      "formula": "a \u003e b ⇒ a+c \u003e b+c; nếu c\u003c0 thì ac \u003c bc.",
+      "steps": [
+        "Xác định quan hệ lớn hơn, nhỏ hơn hoặc bằng.",
+        "Khi biến đổi, lưu ý dấu của số nhân/chia.",
+        "Kết luận bằng đúng dấu so sánh."
+      ],
+      "example": {
+        "q": "Biết 2 \u003c 5. Nhân hai vế với −3, ta được gì?",
+        "solution": [
+          "Vì nhân với số âm, đảo chiều.",
+          "−6 \u003e −15."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Cho 3 \u003c 7. Giá trị nào lớn hơn: −6 hay −14? Nhập số lớn hơn.",
+          "ans": [
+            "-6"
+          ],
+          "hints": [
+            "Nhân 3 \u003c 7 với −2.",
+            "Chiều bất đẳng thức phải đảo.",
+            "−6 \u003e −14."
+          ],
+          "solution": "−6 là số lớn hơn.",
+          "check": "number"
+        },
+        {
+          "q": "Nếu a \u003e b thì a + 9 so với b + 9? Nhập \u003e, \u003c hoặc =.",
+          "ans": [
+            "\u003e"
+          ],
+          "hints": [
+            "Cộng cùng số không đổi chiều.",
+            "a + 9 vẫn lớn hơn b + 9.",
+            "Chọn dấu \u003e."
+          ],
+          "solution": "a + 9 \u003e b + 9.",
+          "check": "text"
+        }
+      ],
+      "keys": "bất đẳng thức tính chất dấu lớn dấu nhỏ"
+    },
+    {
+      "id": 6,
+      "ch": 2,
+      "page": 38,
+      "title": "Bất phương trình bậc nhất một ẩn",
+      "know": "Bất phương trình bậc nhất một ẩn được giải bằng các phép biến đổi tương đương; nhân/chia với số âm phải đổi chiều.",
+      "formula": "ax + b \u003e 0 (hoặc \u003c, ≥, ≤), a ≠ 0.",
+      "steps": [
+        "Chuyển hạng tử chứa ẩn và số sang hai vế.",
+        "Chia hai vế cho hệ số của x (nếu âm, đảo chiều).",
+        "Viết tập nghiệm và biểu diễn trên trục số nếu cần."
+      ],
+      "example": {
+        "q": "Giải −2x + 3 \u003c 9.",
+        "solution": [
+          "−2x \u003c 6.",
+          "Chia cho −2 và đảo chiều: x \u003e −3."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Giải 3x − 5 ≤ 7. Nhập dạng x≤...",
+          "ans": [
+            "x≤4",
+            "x\u003c=4",
+            "≤4",
+            "\u003c=4"
+          ],
+          "hints": [
+            "Cộng hai vế với 5.",
+            "3x ≤ 12.",
+            "Chia cho 3."
+          ],
+          "solution": "x ≤ 4.",
+          "check": "text"
+        },
+        {
+          "q": "Giải −2x \u003e 6. Nhập dạng x\u003c...",
+          "ans": [
+            "x\u003c-3",
+            "\u003c-3"
+          ],
+          "hints": [
+            "Chia hai vế cho −2.",
+            "Vì chia cho số âm, đổi chiều.",
+            "Kết quả x \u003c −3."
+          ],
+          "solution": "x \u003c −3.",
+          "check": "text"
+        }
+      ],
+      "keys": "bất phương trình giải bất phương trình"
+    },
+    {
+      "id": 7,
+      "ch": 3,
+      "page": 44,
+      "title": "Căn bậc hai và căn thức bậc hai",
+      "know": "Căn bậc hai số học của a ≥ 0 là số không âm có bình phương bằng a. Căn thức √A xác định khi A ≥ 0.",
+      "formula": "√a ≥ 0 khi a ≥ 0; (√a)² = a; √(a²) = |a|.",
+      "steps": [
+        "Xét điều kiện biểu thức dưới căn không âm.",
+        "Tìm bình phương của số thích hợp.",
+        "Chọn căn bậc hai số học không âm."
+      ],
+      "example": {
+        "q": "Tính √81.",
+        "solution": [
+          "9² = 81 và 9 ≥ 0.",
+          "Vậy √81 = 9."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tính √49.",
+          "ans": [
+            "7"
+          ],
+          "hints": [
+            "Số nào bình phương bằng 49?",
+            "7² = 49.",
+            "Chọn căn số học không âm."
+          ],
+          "solution": "√49 = 7.",
+          "check": "number"
+        },
+        {
+          "q": "Điều kiện để √(x−4) xác định: nhập x≥...",
+          "ans": [
+            "x≥4",
+            "x\u003e=4",
+            "≥4",
+            "\u003e=4"
+          ],
+          "hints": [
+            "Biểu thức dưới căn ≥ 0.",
+            "x − 4 ≥ 0.",
+            "Suy ra x ≥ 4."
+          ],
+          "solution": "x ≥ 4.",
+          "check": "text"
+        }
+      ],
+      "keys": "căn thức căn bậc hai điều kiện căn"
+    },
+    {
+      "id": 8,
+      "ch": 3,
+      "page": 49,
+      "title": "Khai căn bậc hai với phép nhân và phép chia",
+      "know": "Với các điều kiện thích hợp, căn bậc hai của tích bằng tích các căn; căn thương bằng thương các căn.",
+      "formula": "√(ab) = √a · √b (a,b ≥ 0); √(a/b) = √a/√b (a ≥ 0,b \u003e 0).",
+      "steps": [
+        "Kiểm tra các số dưới căn không âm, mẫu khác 0.",
+        "Tách hoặc ghép căn bằng tính chất.",
+        "Rút gọn kết quả."
+      ],
+      "example": {
+        "q": "Tính √(25·16).",
+        "solution": [
+          "√(25·16)=√25 · √16.",
+          "= 5·4 = 20."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tính √(36·4).",
+          "ans": [
+            "12"
+          ],
+          "hints": [
+            "Tách √36 · √4.",
+            "√36 = 6 và √4 = 2.",
+            "Nhân 6·2."
+          ],
+          "solution": "√144 = 12.",
+          "check": "number"
+        },
+        {
+          "q": "Tính √(100/4).",
+          "ans": [
+            "5"
+          ],
+          "hints": [
+            "√(100/4)=√100/√4.",
+            "=10/2.",
+            "Kết quả bằng 5."
+          ],
+          "solution": "√25 = 5.",
+          "check": "number"
+        }
+      ],
+      "keys": "khai căn phép nhân chia căn thức"
+    },
+    {
+      "id": 9,
+      "ch": 3,
+      "page": 54,
+      "title": "Biến đổi đơn giản và rút gọn biểu thức chứa căn thức bậc hai",
+      "know": "Đưa thừa số ra ngoài dấu căn và gom các căn cùng loại giúp biểu thức gọn hơn.",
+      "formula": "√(a²b)=|a|√b (b ≥ 0); k√a + m√a = (k+m)√a.",
+      "steps": [
+        "Phân tích số dưới căn thành bình phương nhân phần còn lại.",
+        "Đưa thừa số ra ngoài dấu căn.",
+        "Cộng/trừ các căn đồng dạng."
+      ],
+      "example": {
+        "q": "Rút gọn √18 + √8.",
+        "solution": [
+          "√18 = 3√2; √8 = 2√2.",
+          "Cộng: 5√2."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Rút gọn √50. Nhập dạng k√2.",
+          "ans": [
+            "5√2",
+            "5sqrt2",
+            "5*sqrt(2)"
+          ],
+          "hints": [
+            "50 = 25·2.",
+            "√50 = √25·√2.",
+            "√25 = 5."
+          ],
+          "solution": "√50 = 5√2.",
+          "check": "numeric"
+        },
+        {
+          "q": "Rút gọn 2√8 − √18.",
+          "ans": [
+            "√2",
+            "sqrt2",
+            "sqrt(2)"
+          ],
+          "hints": [
+            "√8 = 2√2.",
+            "√18 = 3√2.",
+            "2·2√2 − 3√2 = √2."
+          ],
+          "solution": "2√8 − √18 = √2.",
+          "check": "numeric"
+        }
+      ],
+      "keys": "rút gọn căn trục căn căn thức biến đổi"
+    },
+    {
+      "id": 10,
+      "ch": 3,
+      "page": 60,
+      "title": "Căn bậc ba và căn thức bậc ba",
+      "know": "Mọi số thực đều có một căn bậc ba thực; căn bậc ba của số âm là số âm.",
+      "formula": "∛(a³) = a; ∛(−a) = −∛a.",
+      "steps": [
+        "Tìm số có lập phương bằng số dưới căn.",
+        "Giữ đúng dấu khi số dưới căn âm.",
+        "Kiểm tra bằng phép lập phương."
+      ],
+      "example": {
+        "q": "Tính ∛(−64).",
+        "solution": [
+          "Vì (−4)³ = −64 nên ∛(−64) = −4."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tính ∛(−27).",
+          "ans": [
+            "-3"
+          ],
+          "hints": [
+            "Tìm số có lập phương bằng −27.",
+            "(−3)³ = −27.",
+            "Kết quả −3."
+          ],
+          "solution": "∛(−27) = −3.",
+          "check": "number"
+        },
+        {
+          "q": "Tính ∛(8/27).",
+          "ans": [
+            "2/3"
+          ],
+          "hints": [
+            "8 = 2³ và 27 = 3³.",
+            "Lấy căn tử và mẫu.",
+            "Nhận 2/3."
+          ],
+          "solution": "∛(8/27)=2/3.",
+          "check": "number"
+        }
+      ],
+      "keys": "căn bậc ba lập phương"
+    },
+    {
+      "id": 11,
+      "ch": 4,
+      "page": 66,
+      "title": "Tỉ số lượng giác của góc nhọn",
+      "know": "Trong tam giác vuông, sin, cos, tan, cot của góc nhọn là tỉ số độ dài các cạnh.",
+      "formula": "sin α = đối/huyền; cos α = kề/huyền; tan α = đối/kề; cot α = kề/đối.",
+      "steps": [
+        "Xác định góc cần xét.",
+        "Chỉ rõ cạnh đối, kề và cạnh huyền.",
+        "Lập tỉ số tương ứng."
+      ],
+      "example": {
+        "q": "Trong tam giác vuông, cạnh đối góc α dài 3, cạnh huyền dài 5. Tính sin α.",
+        "solution": [
+          "sin α = cạnh đối/cạnh huyền.",
+          "sin α = 3/5."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tính tan 45°.",
+          "ans": [
+            "1"
+          ],
+          "hints": [
+            "Trong tam giác vuông cân, hai cạnh góc vuông bằng nhau.",
+            "tan45° = đối/kề.",
+            "Tỉ số bằng 1."
+          ],
+          "solution": "tan45° = 1.",
+          "check": "number"
+        },
+        {
+          "q": "Tính sin 30°.",
+          "ans": [
+            "1/2",
+            "0.5"
+          ],
+          "hints": [
+            "Góc đặc biệt 30°.",
+            "Cạnh đối bằng nửa cạnh huyền.",
+            "Tỉ số 1/2."
+          ],
+          "solution": "sin30° = 1/2.",
+          "check": "number"
+        }
+      ],
+      "keys": "sin cos tan cot lượng giác góc"
+    },
+    {
+      "id": 12,
+      "ch": 4,
+      "page": 74,
+      "title": "Một số hệ thức giữa cạnh, góc trong tam giác vuông và ứng dụng",
+      "know": "Có thể dùng tỉ số lượng giác để tính cạnh khi biết một cạnh và góc nhọn.",
+      "formula": "cạnh đối = cạnh huyền·sin α; cạnh kề = cạnh huyền·cos α.",
+      "steps": [
+        "Vẽ tam giác vuông, đánh dấu cạnh và góc.",
+        "Chọn sin, cos hoặc tan phù hợp.",
+        "Thay dữ kiện, tính độ dài và đơn vị."
+      ],
+      "example": {
+        "q": "Cạnh huyền dài 10 cm, góc nhọn 30°. Tính cạnh đối góc đó.",
+        "solution": [
+          "Đối = 10·sin30°.",
+          "= 10·1/2 = 5 cm."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tam giác vuông có cạnh huyền 10 cm, góc α = 30°. Cạnh đối α dài bao nhiêu cm?",
+          "ans": [
+            "5"
+          ],
+          "hints": [
+            "Đối = huyền · sinα.",
+            "sin30° = 1/2.",
+            "10·1/2 = 5."
+          ],
+          "solution": "Cạnh đối dài 5 cm.",
+          "check": "number"
+        },
+        {
+          "q": "Thang dài 8 m tạo góc 30° với mặt đất. Độ cao đạt được (m)?",
+          "ans": [
+            "4"
+          ],
+          "hints": [
+            "Độ cao là cạnh đối góc 30°.",
+            "h = 8sin30°.",
+            "h = 8·1/2."
+          ],
+          "solution": "Độ cao 4 m (giả sử chân thang ở mặt đất).",
+          "check": "number"
+        }
+      ],
+      "keys": "tam giác vuông tính cạnh ứng dụng thực tế góc"
+    },
+    {
+      "id": 13,
+      "ch": 5,
+      "page": 83,
+      "title": "Mở đầu về đường tròn",
+      "know": "Đường tròn tâm O, bán kính R là tập hợp các điểm cách O một khoảng R. Đường kính dài gấp đôi bán kính.",
+      "formula": "d = 2R; chu vi đường tròn C = 2πR.",
+      "steps": [
+        "Tìm tâm và bán kính.",
+        "Phân biệt bán kính, đường kính và dây.",
+        "Dùng mối liên hệ d = 2R."
+      ],
+      "example": {
+        "q": "Đường tròn có bán kính 6 cm. Tính đường kính.",
+        "solution": [
+          "d = 2·6 = 12 cm."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Bán kính bằng 6 cm. Đường kính bằng bao nhiêu cm?",
+          "ans": [
+            "12"
+          ],
+          "hints": [
+            "d = 2R.",
+            "R = 6.",
+            "Nhân 6 với 2."
+          ],
+          "solution": "d = 12 cm.",
+          "check": "number"
+        },
+        {
+          "q": "Đường kính bằng 14 cm. Bán kính bằng bao nhiêu cm?",
+          "ans": [
+            "7"
+          ],
+          "hints": [
+            "R = d/2.",
+            "d = 14.",
+            "14/2 = 7."
+          ],
+          "solution": "R = 7 cm.",
+          "check": "number"
+        }
+      ],
+      "keys": "đường tròn đường kính tâm bán kính"
+    },
+    {
+      "id": 14,
+      "ch": 5,
+      "page": 87,
+      "title": "Cung và dây của một đường tròn",
+      "know": "Dây nối hai điểm trên đường tròn. Đường kính là dây dài nhất. Đường vuông góc từ tâm đến dây đi qua trung điểm dây.",
+      "formula": "Với dây AB cách tâm O một khoảng h: AB = 2√(R² − h²).",
+      "steps": [
+        "Kẻ đường vuông góc từ tâm đến dây.",
+        "Xét tam giác vuông tạo bởi nửa dây, bán kính, khoảng cách.",
+        "Dùng định lí Pythagore."
+      ],
+      "example": {
+        "q": "R = 5 cm, khoảng cách từ tâm đến dây AB là 3 cm. Tính AB.",
+        "solution": [
+          "Nửa dây = √(5²−3²)=√16=4 cm.",
+          "AB = 2·4 = 8 cm."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Đường tròn bán kính 5, khoảng cách từ tâm đến dây là 3. Độ dài dây?",
+          "ans": [
+            "8"
+          ],
+          "hints": [
+            "Nửa dây tạo tam giác vuông.",
+            "Nửa dây = √(25−9).",
+            "Nhân kết quả với 2."
+          ],
+          "solution": "Dây dài 8.",
+          "check": "number"
+        },
+        {
+          "q": "Bán kính 10, khoảng cách từ tâm đến dây là 6. Độ dài dây?",
+          "ans": [
+            "16"
+          ],
+          "hints": [
+            "Nửa dây = √(100−36).",
+            "√64 = 8.",
+            "Dây = 2·8."
+          ],
+          "solution": "Dây dài 16.",
+          "check": "number"
+        }
+      ],
+      "keys": "cung dây đường tròn độ dài dây"
+    },
+    {
+      "id": 15,
+      "ch": 5,
+      "page": 91,
+      "title": "Độ dài của cung tròn. Diện tích hình quạt tròn và hình vành khuyên",
+      "know": "Cung và quạt tròn có số đo góc ở tâm α độ sẽ chiếm phần α/360 của cả đường tròn.",
+      "formula": "l = (α/360)·2πR; S_quạt = (α/360)·πR²; S_vành khuyên=π(R²−r²).",
+      "steps": [
+        "Xác định bán kính và góc ở tâm.",
+        "Đổi số đo góc về độ và áp dụng công thức.",
+        "Giữ đơn vị cm hoặc cm² cho đúng."
+      ],
+      "example": {
+        "q": "Bán kính 6 cm, góc ở tâm 60°. Tính độ dài cung.",
+        "solution": [
+          "l = (60/360)·2π·6.",
+          "l = 2π cm."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Độ dài cung bán kính 6 cm, góc ở tâm 60° bằng bao nhiêu? (nhập theo π)",
+          "ans": [
+            "2π",
+            "2pi",
+            "2*pi"
+          ],
+          "hints": [
+            "l = α/360·2πR.",
+            "Thay α = 60, R = 6.",
+            "Rút gọn ra 2π."
+          ],
+          "solution": "l = 2π cm.",
+          "check": "numeric"
+        },
+        {
+          "q": "Diện tích quạt tròn bán kính 6 cm, góc ở tâm 90°? (theo π)",
+          "ans": [
+            "9π",
+            "9pi",
+            "9*pi"
+          ],
+          "hints": [
+            "S = α/360·πR².",
+            "90/360=1/4.",
+            "(1/4)·36π."
+          ],
+          "solution": "S = 9π cm².",
+          "check": "numeric"
+        }
+      ],
+      "keys": "cung tròn hình quạt diện tích vành khuyên độ dài cung"
+    },
+    {
+      "id": 16,
+      "ch": 5,
+      "page": 99,
+      "title": "Vị trí tương đối của đường thẳng và đường tròn",
+      "know": "Xét khoảng cách d từ tâm tới đường thẳng so với bán kính R để xác định số giao điểm.",
+      "formula": "d \u003c R: cắt hai điểm; d = R: tiếp xúc (tiếp tuyến); d \u003e R: không có giao điểm.",
+      "steps": [
+        "Hạ vuông góc từ tâm đến đường thẳng.",
+        "So sánh khoảng cách d với R.",
+        "Kết luận số giao điểm và quan hệ."
+      ],
+      "example": {
+        "q": "R = 4, khoảng cách từ tâm đến đường thẳng d = 4.",
+        "solution": [
+          "Vì d = R nên đường thẳng tiếp xúc với đường tròn.",
+          "Có đúng một giao điểm."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "R = 5, khoảng cách từ tâm đến đường thẳng d = 3. Có mấy giao điểm?",
+          "ans": [
+            "2"
+          ],
+          "hints": [
+            "So sánh 3 và 5.",
+            "d \u003c R.",
+            "Đường thẳng cắt đường tròn ở hai điểm."
+          ],
+          "solution": "Có 2 giao điểm.",
+          "check": "number"
+        },
+        {
+          "q": "R = 6, khoảng cách từ tâm đến đường thẳng d = 6. Có mấy giao điểm?",
+          "ans": [
+            "1"
+          ],
+          "hints": [
+            "So sánh d với R.",
+            "d = R.",
+            "Đó là tiếp tuyến."
+          ],
+          "solution": "Có 1 giao điểm.",
+          "check": "number"
+        }
+      ],
+      "keys": "tiếp tuyến cát tuyến vị trí đường thẳng đường tròn"
+    },
+    {
+      "id": 17,
+      "ch": 5,
+      "page": 104,
+      "title": "Vị trí tương đối của hai đường tròn",
+      "know": "Số giao điểm phụ thuộc khoảng cách d giữa hai tâm và tổng/hiệu bán kính R, r.",
+      "formula": "|R−r| \u003c d \u003c R+r: cắt nhau; d=R+r: tiếp xúc ngoài; d=|R−r| \u003e 0: tiếp xúc trong.",
+      "steps": [
+        "Ghi bán kính R, r và khoảng cách tâm d.",
+        "So sánh d với R+r và |R−r|.",
+        "Kết luận cắt nhau, tiếp xúc hay không giao nhau."
+      ],
+      "example": {
+        "q": "Hai đường tròn có R = 5, r = 2, d = 7.",
+        "solution": [
+          "R+r=7.",
+          "d=R+r nên chúng tiếp xúc ngoài."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "R = 3, r = 4, khoảng cách tâm d = 5. Có bao nhiêu giao điểm?",
+          "ans": [
+            "2"
+          ],
+          "hints": [
+            "|3−4|=1 và 3+4=7.",
+            "1 \u003c 5 \u003c 7.",
+            "Hai đường tròn cắt nhau."
+          ],
+          "solution": "Có 2 giao điểm.",
+          "check": "number"
+        },
+        {
+          "q": "R = 3, r = 4, d = 7. Có bao nhiêu giao điểm?",
+          "ans": [
+            "1"
+          ],
+          "hints": [
+            "R + r = 7.",
+            "d = R+r.",
+            "Tiếp xúc ngoài."
+          ],
+          "solution": "Có 1 giao điểm.",
+          "check": "number"
+        }
+      ],
+      "keys": "hai đường tròn vị trí tương đối tiếp xúc ngoài"
+    },
+    {
+      "id": 18,
+      "ch": 6,
+      "page": 4,
+      "title": "Hàm số y = ax² (a ≠ 0)",
+      "know": "Đồ thị là parabol nhận trục Oy làm trục đối xứng và O(0;0) làm đỉnh. Khi a \u003e 0 parabol hướng lên; a \u003c 0 hướng xuống.",
+      "formula": "y = ax² (a ≠ 0). Với x và −x, giá trị y bằng nhau.",
+      "steps": [
+        "Thay x vào y = ax² để tính y.",
+        "Lập bảng giá trị (−2,−1,0,1,2).",
+        "Lấy các điểm đối xứng và vẽ đường cong."
+      ],
+      "example": {
+        "q": "Cho y = 2x². Tính y khi x = −3.",
+        "solution": [
+          "y = 2·(−3)².",
+          "= 2·9 = 18."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Với y = 2x², khi x = −3 thì y = ?",
+          "ans": [
+            "18"
+          ],
+          "hints": [
+            "Thay x = −3.",
+            "Bình phương −3 trước.",
+            "2·9 = 18."
+          ],
+          "solution": "y = 18.",
+          "check": "number"
+        },
+        {
+          "q": "Với y = −(1/2)x², khi x = 2 thì y = ?",
+          "ans": [
+            "-2"
+          ],
+          "hints": [
+            "x² = 4.",
+            "Nhân −1/2 với 4.",
+            "Kết quả là −2."
+          ],
+          "solution": "y = −2.",
+          "check": "number"
+        }
+      ],
+      "keys": "hàm số parabol đồ thị ax2 bậc hai"
+    },
+    {
+      "id": 19,
+      "ch": 6,
+      "page": 10,
+      "title": "Phương trình bậc hai một ẩn",
+      "know": "Phương trình bậc hai có dạng ax² + bx + c = 0 với a ≠ 0. Số nghiệm thực dựa vào Δ = b² − 4ac.",
+      "formula": "Δ \u003e 0: x₁,₂ = (−b ± √Δ)/(2a); Δ = 0: x = −b/(2a); Δ \u003c 0: vô nghiệm thực.",
+      "steps": [
+        "Đưa phương trình về dạng chuẩn và xác định a,b,c.",
+        "Tính biệt thức Δ.",
+        "Sử dụng công thức nghiệm; thử lại nếu cần."
+      ],
+      "example": {
+        "q": "Giải x² − 5x + 6 = 0.",
+        "solution": [
+          "a=1,b=−5,c=6 ⇒ Δ=25−24=1.",
+          "x=(5±1)/2.",
+          "Hai nghiệm x = 2 và x = 3."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Giải x² − 5x + 6 = 0. Nhập hai nghiệm ngăn bởi ;",
+          "ans": [
+            "2;3",
+            "3;2"
+          ],
+          "hints": [
+            "a = 1, b = −5, c = 6.",
+            "Δ = 1.",
+            "x = (5 ± 1)/2."
+          ],
+          "solution": "Nghiệm 2 và 3.",
+          "check": "set"
+        },
+        {
+          "q": "Giải 2x² − 8 = 0. Nhập hai nghiệm ngăn bởi ;",
+          "ans": [
+            "-2;2",
+            "2;-2"
+          ],
+          "hints": [
+            "2x² = 8.",
+            "x² = 4.",
+            "x = ±2."
+          ],
+          "solution": "Nghiệm −2 và 2.",
+          "check": "set"
+        }
+      ],
+      "keys": "phương trình bậc hai biệt thức delta công thức nghiệm"
+    },
+    {
+      "id": 20,
+      "ch": 6,
+      "page": 21,
+      "title": "Định lí Viète và ứng dụng",
+      "know": "Nếu phương trình bậc hai có hai nghiệm x₁,x₂, ta tính được tổng và tích từ các hệ số.",
+      "formula": "x₁ + x₂ = −b/a; x₁x₂ = c/a (với ax²+bx+c=0,a≠0 và có nghiệm thực).",
+      "steps": [
+        "Xác định a,b,c.",
+        "Kiểm tra điều kiện có nghiệm thực nếu bài yêu cầu hai nghiệm thực.",
+        "Áp dụng Viète hoặc lập phương trình khi biết tổng tích."
+      ],
+      "example": {
+        "q": "x² − 7x + 10 = 0 có tổng hai nghiệm là bao nhiêu?",
+        "solution": [
+          "a=1,b=−7.",
+          "Theo Viète x₁+x₂=−(−7)/1=7."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tổng hai nghiệm x² − 7x + 10 = 0 bằng bao nhiêu?",
+          "ans": [
+            "7"
+          ],
+          "hints": [
+            "Tổng = −b/a.",
+            "b = −7, a = 1.",
+            "Đổi dấu −7."
+          ],
+          "solution": "Tổng hai nghiệm bằng 7.",
+          "check": "number"
+        },
+        {
+          "q": "Tích hai nghiệm 2x² − 3x − 2 = 0 bằng bao nhiêu?",
+          "ans": [
+            "-1"
+          ],
+          "hints": [
+            "Tích = c/a.",
+            "c = −2 và a = 2.",
+            "−2/2 = −1."
+          ],
+          "solution": "Tích hai nghiệm bằng −1.",
+          "check": "number"
+        }
+      ],
+      "keys": "viet viète tổng tích nghiệm phương trình"
+    },
+    {
+      "id": 21,
+      "ch": 6,
+      "page": 25,
+      "title": "Giải bài toán bằng cách lập phương trình",
+      "know": "Từ dữ kiện của bài toán thực tế, lập phương trình một ẩn (thường là bậc hai), giải rồi chọn nghiệm hợp điều kiện.",
+      "formula": "Đặt ẩn → lập quan hệ → giải → kiểm tra điều kiện → kết luận.",
+      "steps": [
+        "Đặt ẩn, viết đơn vị và điều kiện.",
+        "Biểu diễn đại lượng khác theo ẩn.",
+        "Lập phương trình, giải, loại nghiệm không phù hợp."
+      ],
+      "example": {
+        "q": "Hình chữ nhật dài hơn rộng 3 cm, diện tích 40 cm². Tìm chiều rộng.",
+        "solution": [
+          "Gọi x \u003e 0 là chiều rộng, chiều dài x+3.",
+          "x(x+3)=40 ⇒ x²+3x−40=0.",
+          "(x−5)(x+8)=0; lấy x=5 (loại −8)."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Hình chữ nhật dài hơn rộng 3 cm, diện tích 40 cm². Chiều rộng bằng bao nhiêu cm?",
+          "ans": [
+            "5"
+          ],
+          "hints": [
+            "Đặt rộng x \u003e 0, dài x + 3.",
+            "x(x + 3) = 40.",
+            "(x−5)(x+8)=0."
+          ],
+          "solution": "Chiều rộng 5 cm.",
+          "check": "number"
+        },
+        {
+          "q": "Tích của hai số tự nhiên liên tiếp bằng 72. Số nhỏ bằng bao nhiêu?",
+          "ans": [
+            "8"
+          ],
+          "hints": [
+            "Gọi số nhỏ x ≥ 0.",
+            "x(x+1)=72.",
+            "x²+x−72=0."
+          ],
+          "solution": "Số nhỏ là 8.",
+          "check": "number"
+        }
+      ],
+      "keys": "giải bài toán lập phương trình thực tế"
+    },
+    {
+      "id": 22,
+      "ch": 7,
+      "page": 32,
+      "title": "Bảng tần số và biểu đồ tần số",
+      "know": "Tần số của một giá trị là số lần giá trị ấy xuất hiện trong mẫu dữ liệu. Tổng tần số bằng số dữ liệu.",
+      "formula": "n₁ + n₂ + ⋯ + nₖ = N.",
+      "steps": [
+        "Liệt kê các giá trị khác nhau.",
+        "Đếm số lần xuất hiện của từng giá trị.",
+        "Kiểm tra tổng số lần đếm bằng N."
+      ],
+      "example": {
+        "q": "Dữ liệu 1, 2, 2, 3, 3, 3. Tần số của 3 là bao nhiêu?",
+        "solution": [
+          "Số 3 xuất hiện ba lần.",
+          "Tần số của 3 là 3."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Dữ liệu: 2, 3, 3, 4, 4, 4. Tần số của 4 bằng bao nhiêu?",
+          "ans": [
+            "3"
+          ],
+          "hints": [
+            "Đếm số 4.",
+            "Số 4 xuất hiện ba lần.",
+            "Tần số bằng 3."
+          ],
+          "solution": "3.",
+          "check": "number"
+        },
+        {
+          "q": "Dữ liệu: 5, 6, 6, 7. Tần số của 6 là bao nhiêu?",
+          "ans": [
+            "2"
+          ],
+          "hints": [
+            "Đếm các giá trị bằng 6.",
+            "Có hai số 6.",
+            "Tần số bằng 2."
+          ],
+          "solution": "2.",
+          "check": "number"
+        }
+      ],
+      "keys": "tần số bảng thống kê biểu đồ tần số"
+    },
+    {
+      "id": 23,
+      "ch": 7,
+      "page": 38,
+      "title": "Bảng tần số tương đối và biểu đồ tần số tương đối",
+      "know": "Tần số tương đối là tỉ lệ của tần số với tổng số dữ liệu, thường viết dưới dạng phần trăm.",
+      "formula": "fᵢ = nᵢ/N; phần trăm = (nᵢ/N)·100%.",
+      "steps": [
+        "Tính tần số nᵢ của giá trị.",
+        "Chia cho tổng N.",
+        "Nhân 100% và kiểm tra các tỉ lệ cộng bằng 100%."
+      ],
+      "example": {
+        "q": "Một lựa chọn được 8/40 bạn chọn. Tần số tương đối phần trăm?",
+        "solution": [
+          "8/40 = 0,2.",
+          "Tương đương 20%."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "5 trong tổng số 20 học sinh chọn phương án A. Tần số tương đối (%)?",
+          "ans": [
+            "25",
+            "25%"
+          ],
+          "hints": [
+            "Lấy 5/20.",
+            "Bằng 0,25.",
+            "Nhân 100%."
+          ],
+          "solution": "25%.",
+          "check": "percent"
+        },
+        {
+          "q": "12 trong tổng 40 bạn chọn phương án B. Tỉ lệ phần trăm?",
+          "ans": [
+            "30",
+            "30%"
+          ],
+          "hints": [
+            "Tính 12/40.",
+            "= 0,3.",
+            "Đổi thành 30%."
+          ],
+          "solution": "30%.",
+          "check": "percent"
+        }
+      ],
+      "keys": "tần số tương đối phần trăm biểu đồ"
+    },
+    {
+      "id": 24,
+      "ch": 7,
+      "page": 46,
+      "title": "Bảng tần số, tần số tương đối ghép nhóm và biểu đồ",
+      "know": "Với số liệu nhiều giá trị, có thể ghép thành các nhóm dạng [a;b) để đếm tần số và tính tần số tương đối cho mỗi nhóm.",
+      "formula": "Tần số nhóm = số phần tử thuộc nhóm; tần số tương đối = n_nhóm/N.",
+      "steps": [
+        "Chọn các khoảng nhóm không chồng lấn.",
+        "Đếm số dữ liệu rơi vào mỗi nhóm.",
+        "Lập bảng và dùng để vẽ biểu đồ cột/histogram phù hợp."
+      ],
+      "example": {
+        "q": "Ba nhóm có tần số 4, 7, 9. Tổng số quan sát?",
+        "solution": [
+          "N = 4 + 7 + 9.",
+          "N = 20."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Các nhóm có tần số lần lượt 4, 7, 9. Tổng số dữ liệu?",
+          "ans": [
+            "20"
+          ],
+          "hints": [
+            "Tổng tần số là N.",
+            "Cộng 4 + 7 + 9.",
+            "Kết quả 20."
+          ],
+          "solution": "N = 20.",
+          "check": "number"
+        },
+        {
+          "q": "Nhóm [10;20) có cận dưới 10, cận trên 20. Trung điểm nhóm là bao nhiêu?",
+          "ans": [
+            "15"
+          ],
+          "hints": [
+            "Trung điểm = (cận dưới + cận trên)/2.",
+            "(10+20)/2.",
+            "= 15."
+          ],
+          "solution": "Trung điểm nhóm 15.",
+          "check": "number"
+        }
+      ],
+      "keys": "ghép nhóm thống kê histogram dữ liệu"
+    },
+    {
+      "id": 25,
+      "ch": 8,
+      "page": 56,
+      "title": "Phép thử ngẫu nhiên và không gian mẫu",
+      "know": "Phép thử ngẫu nhiên là phép thử có thể cho những kết quả khác nhau; tập hợp mọi kết quả có thể là không gian mẫu Ω.",
+      "formula": "Ω = {các kết quả có thể}; n(Ω) là số kết quả trong không gian mẫu hữu hạn.",
+      "steps": [
+        "Mô tả phép thử.",
+        "Liệt kê các kết quả khác nhau có thể xảy ra.",
+        "Đếm số phần tử của Ω."
+      ],
+      "example": {
+        "q": "Gieo đồng xu cân đối một lần. Có mấy kết quả?",
+        "solution": [
+          "Ω = {sấp, ngửa}.",
+          "Có 2 kết quả."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Gieo một con xúc xắc sáu mặt một lần. Có mấy kết quả?",
+          "ans": [
+            "6"
+          ],
+          "hints": [
+            "Các mặt có số chấm từ 1 đến 6.",
+            "Liệt kê 1,2,3,4,5,6.",
+            "Có 6 kết quả."
+          ],
+          "solution": "n(Ω)=6.",
+          "check": "number"
+        },
+        {
+          "q": "Tung đồng xu hai lần. Có mấy dãy kết quả có thứ tự?",
+          "ans": [
+            "4"
+          ],
+          "hints": [
+            "Mỗi lần có 2 kết quả.",
+            "Hai lần: 2·2.",
+            "Có 4 cặp kết quả."
+          ],
+          "solution": "4 kết quả: SS, SN, NS, NN.",
+          "check": "number"
+        }
+      ],
+      "keys": "không gian mẫu ngẫu nhiên phép thử"
+    },
+    {
+      "id": 26,
+      "ch": 8,
+      "page": 60,
+      "title": "Xác suất của biến cố liên quan tới phép thử",
+      "know": "Nếu các kết quả trong không gian mẫu hữu hạn là đồng khả năng, xác suất biến cố bằng tỉ số số kết quả thuận lợi và tổng số kết quả.",
+      "formula": "P(A) = n(A)/n(Ω) trong mô hình đồng khả năng; 0 ≤ P(A) ≤ 1.",
+      "steps": [
+        "Xác định không gian mẫu đồng khả năng.",
+        "Đếm số kết quả thuận lợi của biến cố.",
+        "Lấy số thuận lợi chia tổng số kết quả."
+      ],
+      "example": {
+        "q": "Gieo xúc xắc cân đối. Xác suất ra số chẵn?",
+        "solution": [
+          "Thuận lợi {2,4,6}: 3 kết quả.",
+          "P = 3/6 = 1/2."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Gieo xúc xắc cân đối. Xác suất ra số chẵn?",
+          "ans": [
+            "1/2",
+            "0.5"
+          ],
+          "hints": [
+            "Có 6 kết quả đồng khả năng.",
+            "Có 3 kết quả chẵn: 2,4,6.",
+            "Tính 3/6."
+          ],
+          "solution": "P = 1/2.",
+          "check": "number"
+        },
+        {
+          "q": "Tung hai lần đồng xu cân đối. Xác suất cả hai lần đều ngửa?",
+          "ans": [
+            "1/4",
+            "0.25"
+          ],
+          "hints": [
+            "Có 4 kết quả đồng khả năng.",
+            "Chỉ có (ngửa, ngửa).",
+            "Tính 1/4."
+          ],
+          "solution": "P = 1/4.",
+          "check": "number"
+        }
+      ],
+      "keys": "xác suất đồng khả năng biến cố"
+    },
+    {
+      "id": 27,
+      "ch": 9,
+      "page": 67,
+      "title": "Góc nội tiếp",
+      "know": "Góc nội tiếp có đỉnh nằm trên đường tròn, hai cạnh chứa hai dây. Số đo góc nội tiếp bằng nửa số đo cung bị chắn.",
+      "formula": "góc nội tiếp = 1/2 số đo cung bị chắn (theo độ).",
+      "steps": [
+        "Xác định cung mà góc nội tiếp chắn.",
+        "Tìm số đo cung đó.",
+        "Lấy một nửa để được số đo góc."
+      ],
+      "example": {
+        "q": "Cung bị chắn 100°. Góc nội tiếp tương ứng bao nhiêu?",
+        "solution": [
+          "Góc nội tiếp = 100°/2 = 50°."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Góc nội tiếp chắn cung 80°. Góc bằng bao nhiêu độ?",
+          "ans": [
+            "40"
+          ],
+          "hints": [
+            "Góc nội tiếp bằng nửa cung bị chắn.",
+            "80°/2.",
+            "Kết quả 40°."
+          ],
+          "solution": "40°.",
+          "check": "number"
+        },
+        {
+          "q": "Cung bị chắn 110°. Góc nội tiếp bằng mấy độ?",
+          "ans": [
+            "55"
+          ],
+          "hints": [
+            "Lấy nửa 110.",
+            "110/2 = 55.",
+            "Góc 55°."
+          ],
+          "solution": "55°.",
+          "check": "number"
+        }
+      ],
+      "keys": "góc nội tiếp cung bị chắn"
+    },
+    {
+      "id": 28,
+      "ch": 9,
+      "page": 72,
+      "title": "Đường tròn ngoại tiếp và đường tròn nội tiếp của một tam giác",
+      "know": "Đường tròn ngoại tiếp đi qua ba đỉnh của tam giác; tâm là giao của ba đường trung trực. Đường tròn nội tiếp tiếp xúc ba cạnh; tâm là giao ba đường phân giác.",
+      "formula": "Tam giác vuông có bán kính ngoại tiếp R = cạnh huyền/2.",
+      "steps": [
+        "Phân biệt tâm ngoại tiếp và nội tiếp.",
+        "Chọn tính chất phù hợp với loại tam giác.",
+        "Tính bán kính hay vị trí tâm."
+      ],
+      "example": {
+        "q": "Tam giác vuông có cạnh huyền dài 10 cm. Bán kính ngoại tiếp?",
+        "solution": [
+          "Tâm ngoại tiếp là trung điểm cạnh huyền.",
+          "R = 10/2 = 5 cm."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tam giác vuông có cạnh huyền 10 cm. Bán kính ngoại tiếp bằng bao nhiêu cm?",
+          "ans": [
+            "5"
+          ],
+          "hints": [
+            "Tâm ngoại tiếp ở trung điểm cạnh huyền.",
+            "R = cạnh huyền/2.",
+            "10/2 = 5."
+          ],
+          "solution": "R = 5 cm.",
+          "check": "number"
+        },
+        {
+          "q": "Tam giác vuông có cạnh huyền 14 cm. Bán kính ngoại tiếp?",
+          "ans": [
+            "7"
+          ],
+          "hints": [
+            "Lấy một nửa cạnh huyền.",
+            "14/2 = 7.",
+            "Đơn vị cm."
+          ],
+          "solution": "R = 7 cm.",
+          "check": "number"
+        }
+      ],
+      "keys": "ngoại tiếp nội tiếp tam giác đường trung trực phân giác"
+    },
+    {
+      "id": 29,
+      "ch": 9,
+      "page": 80,
+      "title": "Tứ giác nội tiếp",
+      "know": "Tứ giác có bốn đỉnh nằm trên một đường tròn được gọi là tứ giác nội tiếp. Hai góc đối của tứ giác nội tiếp bù nhau.",
+      "formula": "∠A + ∠C = 180°; ∠B + ∠D = 180°.",
+      "steps": [
+        "Xác định cặp góc đối.",
+        "Áp dụng tổng hai góc đối bằng 180°.",
+        "Lấy 180° trừ góc đã biết."
+      ],
+      "example": {
+        "q": "Tứ giác nội tiếp có ∠A = 110°. Tìm góc đối ∠C.",
+        "solution": [
+          "∠A+∠C=180°.",
+          "∠C=180°−110°=70°."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Tứ giác nội tiếp có một góc bằng 110°. Góc đối của nó bằng bao nhiêu độ?",
+          "ans": [
+            "70"
+          ],
+          "hints": [
+            "Hai góc đối bù nhau.",
+            "180 − 110.",
+            "Kết quả 70."
+          ],
+          "solution": "70°.",
+          "check": "number"
+        },
+        {
+          "q": "Một góc tứ giác nội tiếp bằng 85°. Góc đối bằng bao nhiêu độ?",
+          "ans": [
+            "95"
+          ],
+          "hints": [
+            "Tổng hai góc đối là 180°.",
+            "180 − 85.",
+            "=95."
+          ],
+          "solution": "95°.",
+          "check": "number"
+        }
+      ],
+      "keys": "tứ giác nội tiếp góc đối"
+    },
+    {
+      "id": 30,
+      "ch": 9,
+      "page": 84,
+      "title": "Đa giác đều",
+      "know": "Đa giác đều có tất cả cạnh bằng nhau và tất cả góc bằng nhau. Góc ở tâm chắn một cạnh bằng 360°/n.",
+      "formula": "góc ở tâm = 360°/n; góc trong mỗi đỉnh = (n−2)·180°/n.",
+      "steps": [
+        "Đếm số cạnh n.",
+        "Chọn công thức góc ở tâm/góc trong.",
+        "Thay n và tính."
+      ],
+      "example": {
+        "q": "Lục giác đều có mỗi góc ở tâm bằng bao nhiêu?",
+        "solution": [
+          "360°/6 = 60°."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Góc ở tâm chắn một cạnh của lục giác đều bằng bao nhiêu độ?",
+          "ans": [
+            "60"
+          ],
+          "hints": [
+            "n = 6.",
+            "Góc ở tâm = 360/n.",
+            "360/6 = 60."
+          ],
+          "solution": "60°.",
+          "check": "number"
+        },
+        {
+          "q": "Góc ngoài của bát giác đều bằng bao nhiêu độ?",
+          "ans": [
+            "45"
+          ],
+          "hints": [
+            "Bát giác có 8 cạnh.",
+            "Góc ngoài = 360/n.",
+            "360/8 = 45."
+          ],
+          "solution": "45°.",
+          "check": "number"
+        }
+      ],
+      "keys": "đa giác đều lục giác bát giác"
+    },
+    {
+      "id": 31,
+      "ch": 10,
+      "page": 93,
+      "title": "Hình trụ và hình nón",
+      "know": "Hình trụ có hai đáy tròn bằng nhau; hình nón có một đáy tròn và một đỉnh. Dùng bán kính đáy R, chiều cao h, đường sinh l.",
+      "formula": "V_trụ = πR²h; S_xq,trụ = 2πRh; V_nón = (1/3)πR²h; S_xq,nón = πRl.",
+      "steps": [
+        "Xác định hình trụ hay hình nón.",
+        "Chú ý bán kính đáy, chiều cao hoặc đường sinh.",
+        "Thay vào công thức và kèm đơn vị phù hợp."
+      ],
+      "example": {
+        "q": "Tính thể tích hình nón R = 3 cm, h = 4 cm.",
+        "solution": [
+          "V = (1/3)π·3²·4.",
+          "V = 12π cm³."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Thể tích hình nón có R = 3 cm, h = 4 cm là bao nhiêu? (theo π)",
+          "ans": [
+            "12π",
+            "12pi",
+            "12*pi"
+          ],
+          "hints": [
+            "V = 1/3·πR²h.",
+            "R² = 9.",
+            "(1/3)·9·4 = 12."
+          ],
+          "solution": "12π cm³.",
+          "check": "numeric"
+        },
+        {
+          "q": "Diện tích xung quanh hình trụ có R = 2 cm, h = 5 cm? (theo π)",
+          "ans": [
+            "20π",
+            "20pi",
+            "20*pi"
+          ],
+          "hints": [
+            "S_xq = 2πRh.",
+            "Thay 2π·2·5.",
+            "= 20π."
+          ],
+          "solution": "20π cm².",
+          "check": "numeric"
+        }
+      ],
+      "keys": "hình trụ hình nón thể tích diện tích"
+    },
+    {
+      "id": 32,
+      "ch": 10,
+      "page": 101,
+      "title": "Hình cầu",
+      "know": "Hình cầu được tạo bởi tất cả điểm trong không gian cách tâm không quá R. Mặt cầu có diện tích 4πR²; thể tích hình cầu là (4/3)πR³.",
+      "formula": "S_mặt cầu = 4πR²; V_cầu = (4/3)πR³.",
+      "steps": [
+        "Xác định bán kính R (nếu cho đường kính phải chia 2).",
+        "Chọn công thức diện tích hay thể tích.",
+        "Tính và ghi đúng đơn vị."
+      ],
+      "example": {
+        "q": "Bán kính hình cầu là 3 cm. Thể tích bằng bao nhiêu?",
+        "solution": [
+          "V = (4/3)π·3³.",
+          "V = 36π cm³."
+        ]
+      },
+      "tasks": [
+        {
+          "q": "Thể tích hình cầu bán kính 3 cm? (theo π)",
+          "ans": [
+            "36π",
+            "36pi",
+            "36*pi"
+          ],
+          "hints": [
+            "V = 4/3·πR³.",
+            "3³ = 27.",
+            "(4/3)·27 = 36."
+          ],
+          "solution": "36π cm³.",
+          "check": "numeric"
+        },
+        {
+          "q": "Diện tích mặt cầu bán kính 2 cm? (theo π)",
+          "ans": [
+            "16π",
+            "16pi",
+            "16*pi"
+          ],
+          "hints": [
+            "S = 4πR².",
+            "R² = 4.",
+            "4·4π = 16π."
+          ],
+          "solution": "16π cm².",
+          "check": "numeric"
+        }
+      ],
+      "keys": "hình cầu thể tích mặt cầu"
+    }
+  ],
+  "critiques": [
+    {
+      "ch": 1,
+      "claim": "Một bạn nói: “Từ x + y = 5 suy ra x = 2 và y = 3, đó là nghiệm DUY NHẤT.”",
+      "choices": [
+        "Đúng vì có hai ẩn.",
+        "Sai vì một phương trình hai ẩn có thể có nhiều nghiệm.",
+        "Sai vì 2 + 3 không bằng 5."
+      ],
+      "correct": 1,
+      "explain": "Một phương trình bậc nhất hai ẩn thường có vô số nghiệm; (2;3) chỉ là một cặp nghiệm."
+    },
+    {
+      "ch": 2,
+      "claim": "AI viết: “−2x \u003e 6 nên x \u003e −3.”",
+      "choices": [
+        "Sai: chia bất phương trình cho số âm phải đổi chiều.",
+        "Đúng: chỉ cần chia cả hai vế.",
+        "Sai: phải chuyển 6 thành −6."
+      ],
+      "correct": 0,
+      "explain": "Chia hai vế cho −2 phải đổi chiều, nên x \u003c −3."
+    },
+    {
+      "ch": 3,
+      "claim": "AI kết luận: “√(a²) = a với mọi số thực a.”",
+      "choices": [
+        "Đúng với mọi a.",
+        "Sai vì √(a²) = |a|.",
+        "Sai vì √(a²) = a²."
+      ],
+      "correct": 1,
+      "explain": "√(a²) luôn không âm. Nếu a = −5 thì √(25) = 5, không phải −5."
+    },
+    {
+      "ch": 4,
+      "claim": "AI khẳng định: “sin 30° = 2.”",
+      "choices": [
+        "Đúng vì 30° là góc nhọn.",
+        "Sai vì sin một góc nhọn nằm trong khoảng (0;1).",
+        "Sai vì sin 30° = 0."
+      ],
+      "correct": 1,
+      "explain": "sin30° = 1/2, không thể bằng 2."
+    },
+    {
+      "ch": 5,
+      "claim": "AI viết: “Một dây bất kì của đường tròn đều là đường kính.”",
+      "choices": [
+        "Đúng: dây luôn đi qua tâm.",
+        "Sai: chỉ dây đi qua tâm mới là đường kính.",
+        "Sai: đường kính không phải là dây."
+      ],
+      "correct": 1,
+      "explain": "Đường kính là một trường hợp đặc biệt của dây: dây đi qua tâm."
+    },
+    {
+      "ch": 6,
+      "claim": "AI giải x² − 5x + 6 = 0: “Δ = 25 − 24 = 1 nên chỉ có một nghiệm.”",
+      "choices": [
+        "Sai: Δ \u003e 0 thì có hai nghiệm phân biệt.",
+        "Đúng vì Δ = 1.",
+        "Sai: Δ thật ra âm."
+      ],
+      "correct": 0,
+      "explain": "Δ = 1 \u003e 0 nên phương trình có hai nghiệm x = 2 và x = 3."
+    },
+    {
+      "ch": 7,
+      "claim": "AI nói: “Trong 20 lượt có 5 lần xuất hiện nên tần số tương đối là 5%.”",
+      "choices": [
+        "Đúng vì có 5 lần.",
+        "Sai: tần số tương đối là 5/20 = 25%.",
+        "Sai: tần số tương đối phải là 20%."
+      ],
+      "correct": 1,
+      "explain": "Tần số là 5; tần số tương đối là 5/20 = 0,25 = 25%."
+    },
+    {
+      "ch": 8,
+      "claim": "AI cho rằng: “Xác suất gieo một xúc xắc cân đối ra số 7 là 1/6.”",
+      "choices": [
+        "Đúng vì có 6 mặt.",
+        "Sai: biến cố ra số 7 là không thể, xác suất bằng 0.",
+        "Sai: xác suất phải bằng 1."
+      ],
+      "correct": 1,
+      "explain": "Các mặt xúc xắc từ 1 đến 6 nên 7 không thuộc không gian mẫu."
+    },
+    {
+      "ch": 9,
+      "claim": "AI nói: “Tứ giác nội tiếp có hai góc đối luôn bằng nhau.”",
+      "choices": [
+        "Đúng với mọi tứ giác nội tiếp.",
+        "Sai: hai góc đối phải có tổng bằng 180°.",
+        "Sai: tổng hai góc đối bằng 90°."
+      ],
+      "correct": 1,
+      "explain": "Tính chất đúng là hai góc đối của tứ giác nội tiếp bù nhau."
+    },
+    {
+      "ch": 10,
+      "claim": "AI tính thể tích hình nón: “V = πR²h, giống hệt hình trụ.”",
+      "choices": [
+        "Đúng: nón và trụ cùng công thức.",
+        "Sai: thể tích hình nón phải chia 3.",
+        "Sai: thể tích hình nón bằng 2πRh."
+      ],
+      "correct": 1,
+      "explain": "Thể tích hình nón là (1/3)πR²h; hình trụ là πR²h."
+    }
+  ]
+}</script>
+<script>
+(()=>{'use strict';
+const DATA=JSON.parse(document.getElementById('knowledgeBase').textContent);
+const $=id=>document.getElementById(id);
+const {chapters,lessons,critiques}=DATA;
+const bookNames=['','Tập một','Tập hai'];
+const STORAGE='mathmate9_kntt_v1';
+const startState={current:1,solved:{},debateDone:{},correct:0,attempts:0,theme:'light',seq:{}};
+let state={...startState};
+try{const s=JSON.parse(localStorage.getItem(STORAGE)||'null');if(s&&typeof s==='object')state={...state,...s};}catch(_e){}
+let current=lessons.find(x=>x.id===Number(state.current))||lessons[0];
+let activeQuiz=null,activeDebate=null,mode='learn',hintIdx=0,toastTimer;
+const norm=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().trim();
+const compact=s=>norm(s).replace(/\s+/g,'').replace(/[−–]/g,'-').replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/π/g,'pi').replace(/×/g,'*').replace(/[；]/g,';').replace(/,/g,'.').replace(/độ/g,'');
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state));}catch(_e){}}
+function make(tag,cls,txt){let x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x;}
+function toast(str){const n=$('toast');n.textContent=str;n.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>n.classList.remove('show'),2600);}
+function scrollEnd(){let b=$('chatScroll');requestAnimationFrame(()=>{b.scrollTop=b.scrollHeight;});}
+function addMessage(who,body,content){const msg=make('div','msg '+who),avatar=make('div','avatar',who==='user'?'Em':'∑'),stuff=make('div','msg-stuff'),bubble=make('div','bubble');if(body){bubble.append(make('div','plain',body));}if(content)bubble.append(content);stuff.append(bubble);stuff.append(make('div','msg-time',new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'})));msg.append(avatar,stuff);$('messages').append(msg);scrollEnd();return bubble;}
+const bot=(str,node)=>addMessage('bot',str,node);
+function makeBox(title,text,kind=''){const el=make('div','content-card '+kind);el.append(make('div','mini-label',title));el.append(make('div','small-body',text));return el;}
+function stepsBlock(items){const ul=make('ol','steps');items.forEach(x=>ul.append(make('li','',x)));return ul;}
+function actionButton(text,cb,cls='secondary'){let b=make('button','btn '+cls,text);b.type='button';b.addEventListener('click',cb);return b;}
+function viewLesson(id,announce=true){const target=lessons.find(x=>x.id===Number(id));if(!target)return;current=target;state.current=id;save();activeQuiz=null;activeDebate=null;mode='learn';updateMode();$('currentTitle').textContent=`Bài ${current.id}. ${current.title}`;$('pageChip').textContent=`Tập ${chapters.find(c=>c.id===current.ch).vol} · Tr. ${current.page}`;$('topicCaption').textContent=`Chương ${roman(current.ch)} · ${chapters.find(c=>c.id===current.ch).title}`;$('volLabel').textContent=`TOÁN 9 · KẾT NỐI TRI THỨC · ${bookNames[chapters.find(c=>c.id===current.ch).vol].toUpperCase()}`;renderNav();renderPrompts();closeMenu();if(announce)bot(`Em đang học Bài ${current.id}: ${current.title}.\nEm có thể hỏi “kiến thức”, “ví dụ”, “luyện tập”, hoặc “phản biện AI”.`);}
+const roman=n=>['','I','II','III','IV','V','VI','VII','VIII','IX','X'][n];
+function renderNav(){const root=$('lessonNav'),query=norm($('topicSearch').value);root.replaceChildren();let matches=0;
+for(const volume of [1,2]){const cc=chapters.filter(c=>c.vol===volume);const sections=cc.map(ch=>({ch,items:lessons.filter(x=>x.ch===ch.id&&(!query||norm(x.title+' '+ch.title+' '+x.keys+' bài '+x.id).includes(query)))})).filter(x=>x.items.length);if(!sections.length)continue;
+const header=make('div','book-heading');header.append(make('i','book-marker '+(volume===2?'orange':'')),make('span','',`SÁCH ${bookNames[volume].toUpperCase()}`));root.append(header);
+for(const {ch,items} of sections){matches+=items.length;const b=make('button','chap-title',`CHƯƠNG ${roman(ch.id)} · ${ch.short}`),count=make('span','count',`${items.length} bài`);b.append(count);b.addEventListener('click',()=>{let grp=b.nextElementSibling;grp.hidden=!grp.hidden;});root.append(b);const group=make('div','lesson-items');group.hidden=false;items.forEach(l=>{const i=make('button','lesson-item'+(l.id===current.id?' active':''));const num=make('span','lesson-n',String(l.id).padStart(2,'0'));i.append(num,make('span','',l.title));if((state.solved[l.id]||[]).length)i.append(make('span','tiny-done','✓'));i.addEventListener('click',()=>viewLesson(l.id));group.append(i);});root.append(group);}}
+if(!matches)root.append(make('p','no-search','Không tìm thấy bài học phù hợp.'));}
+function renderPrompts(){const base=[['📘 Kiến thức',()=>showTheory()],['🧮 Ví dụ mẫu',()=>showExample()],['✍ Luyện tập',()=>startQuiz()],['💡 Gợi ý học',()=>bot('Em hãy đọc công thức, tự thực hiện bước đầu tiên rồi kiểm tra. Khi luyện tập, nhấn “Gợi ý” để xem từng bước mà không lộ đáp án ngay.')],['⚑ Phản biện AI',()=>startDebate()]];$('quickPrompts').replaceChildren();base.forEach(([title,handler])=>{const p=make('button','prompt',title);p.addEventListener('click',handler);$('quickPrompts').append(p);});}
+function updateProgress(){const done=Object.values(state.solved||{}).filter(v=>Array.isArray(v)&&v.length>0).length;const crit=Object.keys(state.debateDone||{}).filter(k=>state.debateDone[k]).length;$('lessonDone').textContent=done;$('rightCorrect').textContent=state.correct||0;$('rightDebate').textContent=crit;$('progressBar').style.width=(done/32*100)+'%';$('progressText').textContent=done===32?'Tuyệt vời! Em đã luyện đúng ở cả 32 bài.':'Em đã luyện đúng ở '+done+' bài · '+Math.round(done/32*100)+'% chương trình.';}
+function showTheory(){activeQuiz=null;activeDebate=null;setMode('learn');const wrap=make('div');wrap.append(makeBox('KIẾN THỨC TRỌNG TÂM',current.know,'teal'));wrap.append(makeBox('GHI NHỚ / CÔNG THỨC',current.formula));const m=make('div','content-card');m.append(make('div','mini-label','CÁCH LÀM THEO TỪNG BƯỚC'));m.append(stepsBlock(current.steps));wrap.append(m);const row=make('div','btn-row');row.append(actionButton('Xem ví dụ',()=>showExample()),actionButton('Luyện tập ngay',()=>startQuiz(),'btn'));wrap.append(row);bot(`Đây là kiến thức trọng tâm của Bài ${current.id}: ${current.title}.`,wrap);}
+function showExample(){activeQuiz=null;activeDebate=null;setMode('learn');const wrap=make('div');wrap.append(makeBox('VÍ DỤ',current.example.q,'teal'));const m=make('div','content-card');m.append(make('div','mini-label','PHÂN TÍCH VÀ LỜI GIẢI'));m.append(stepsBlock(current.example.solution));wrap.append(m);const row=make('div','btn-row');row.append(actionButton('Thử bài tương tự',()=>startQuiz(),'btn'));wrap.append(row);bot('Hãy quan sát cách giải, rồi thử làm một bài tương tự mà không nhìn lại.',wrap);}
+function setMode(x){mode=x;updateMode();}
+function updateMode(){document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));}
+function quizNextIndex(){const len=current.tasks.length;const v=Number(state.seq[current.id]||0);state.seq[current.id]=v+1;save();return v%len;}
+function startQuiz(){activeDebate=null;setMode('practice');const idx=quizNextIndex();const t=current.tasks[idx];activeQuiz={lessonId:current.id,idx,hint:0,attempts:0};const shell=make('div');shell.append(make('div','strong-title',`Bài luyện tập ${idx+1}/${current.tasks.length}`));shell.append(makeBox('ĐỀ BÀI',t.q,'teal'));let answer=make('div','answer-box'),label=make('div','mini-label','NHẬP ĐÁP ÁN CỦA EM'),input=make('input');input.placeholder='Ví dụ: 5 hoặc 2;3';input.setAttribute('aria-label','Nhập đáp án bài luyện tập');input.setAttribute('autocomplete','off');answer.append(label,input);const row=make('div','btn-row');row.append(actionButton('Kiểm tra',()=>submitQuiz(input.value),'btn'),actionButton('Gợi ý từng bước',()=>giveHint(),'secondary'),actionButton('Xem lời giải',()=>revealQuiz(),'neutral'));answer.append(row);input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitQuiz(input.value);}});shell.append(answer);bot('Em thử tự giải trước. Chỉ khi cần, hãy bấm “Gợi ý từng bước”.',shell);scrollEnd();}
+function numericValue(expr){let s=compact(expr).replace(/sqrt\s*\(/g,'√(').replace(/sqrt(?=\d|pi)/g,'√').replace(/√(?=\d)/g,'√').replace(/²/g,'^2').replace(/³/g,'^3');if(!s||s.length>85)return null;s=s.replace(/(\d)(pi|√|\()/g,'$1*$2').replace(/(pi|\))(\d|pi|√|\()/g,'$1*$2').replace(/(\d)√/g,'$1*√');let tokens=s.match(/pi|√|\d*\.?\d+|[+\-*/^()]/g)||[];if(tokens.join('')!==s)return null;let i=0;function atom(){let t=tokens[i++];if(t==null)throw 0;if(t==='+')return atom();if(t==='-')return -atom();if(t==='pi')return Math.PI;if(t==='√')return Math.sqrt(atom());if(t==='('){let v=sum();if(tokens[i++]!==')')throw 0;return v;}if(/^\d*\.?\d+$/.test(t))return Number(t);throw 0;}function pow(){let v=atom();if(tokens[i]==='^'){i++;v=Math.pow(v,pow());}return v;}function prod(){let v=pow();while(tokens[i]==='*'||tokens[i]==='/'){let op=tokens[i++],x=pow();v=op==='*'?v*x:v/x;}return v;}function sum(){let v=prod();while(tokens[i]==='+'||tokens[i]==='-'){let op=tokens[i++],x=prod();v=op==='+'?v+x:v-x;}return v;}try{let val=sum();return i===tokens.length&&Number.isFinite(val)?val:null;}catch(_e){return null;}}
+function checkAnswer(user,task){const got=compact(user).replace(/^x=/,'').replace(/%$/,'');if(!got)return false;const expected=task.ans;
+for(const answer of expected){let want=compact(answer).replace(/^x=/,'').replace(/%$/,'');if(got===want)return true;
+if(['number','numeric','percent'].includes(task.check)){const a=numericValue(got),b=numericValue(want);if(a!==null&&b!==null&&Math.abs(a-b)<Math.max(.0001,Math.abs(b)*.002))return true;}
+if(['pair','set'].includes(task.check)){let arr=s=>s.replace(/x=/g,'').replace(/y=/g,'').replace(/\(/g,'').replace(/\)/g,'').split(/[;,]/).map(x=>numericValue(x)).filter(x=>x!==null);const a=arr(got),b=arr(want);if(a.length===2&&b.length===2){if(task.check==='set'){a.sort((x,y)=>x-y);b.sort((x,y)=>x-y);}if(a.every((v,i)=>Math.abs(v-b[i])<.0001))return true;}}
+}return false;}
+function submitQuiz(answer,alreadyDisplayed=false){if(!activeQuiz)return bot('Em hãy chọn “Luyện tập” để bắt đầu bài mới.');if(!String(answer).trim())return toast('Em hãy nhập đáp án trước nhé.');const l=lessons.find(x=>x.id===activeQuiz.lessonId),t=l.tasks[activeQuiz.idx];if(!alreadyDisplayed)addMessage('user',String(answer));state.attempts++;if(checkAnswer(answer,t)){state.correct++;const done=new Set(state.solved[l.id]||[]);done.add(activeQuiz.idx);state.solved[l.id]=[...done];save();updateProgress();renderNav();const row=make('div','btn-row');row.append(actionButton('Bài tiếp theo →',()=>startQuiz(),'btn'),actionButton('Xem cách giải',()=>bot(t.solution)));bot('🎉 Chính xác! Em đã tự làm được bài này.\n'+t.solution,row);activeQuiz=null;}else{activeQuiz.attempts++;save();const msg=activeQuiz.attempts>=2?'Chưa chính xác. Em hãy kiểm tra lại dấu, phép biến đổi hoặc điều kiện của bài. Có thể bấm “Gợi ý từng bước”.':'Chưa đúng rồi, nhưng em hãy thử lại một bước nữa nhé. Không cần vội xem đáp án.';const row=make('div','btn-row');row.append(actionButton('Nhận gợi ý',()=>giveHint()),actionButton('Xem lời giải',()=>revealQuiz(),'neutral'));bot(msg,row);}}
+function giveHint(){if(!activeQuiz){bot('Hãy bắt đầu một bài “Luyện tập” trước, rồi mình mới đưa gợi ý từng bước cho bài đó.');return;}let task=lessons.find(x=>x.id===activeQuiz.lessonId).tasks[activeQuiz.idx];if(activeQuiz.hint>=task.hints.length){const row=make('div','btn-row');row.append(actionButton('Xem lời giải đầy đủ',()=>revealQuiz(),'warn'));bot('Em đã xem hết gợi ý. Hãy tự tính ra kết quả cuối cùng trước khi mở lời giải.',row);return;}const k=activeQuiz.hint++;bot(`💡 Gợi ý ${k+1}/${task.hints.length}: ${task.hints[k]}`);}
+function revealQuiz(){if(!activeQuiz){bot('Hiện không có bài luyện tập cần xem lời giải.');return;}const task=lessons.find(x=>x.id===activeQuiz.lessonId).tasks[activeQuiz.idx];const row=make('div','btn-row');row.append(actionButton('Làm bài mới',()=>startQuiz(),'btn'));bot('Lời giải tham khảo: '+task.solution+'\nLưu ý: xem lời giải không được tính là làm đúng bài.',row);activeQuiz=null;}
+function startDebate(){activeQuiz=null;activeDebate=true;setMode('debate');const c=critiques.find(x=>x.ch===current.ch);const wrap=make('div');wrap.append(makeBox('LỜI GIẢI / NHẬN ĐỊNH CẦN KIỂM TRA',c.claim,'amber'));wrap.append(make('div','strong-title','Em phát hiện vấn đề ở đâu?'));c.choices.forEach((choice,i)=>{const b=make('button','option-btn');b.append(make('b','',String.fromCharCode(65+i)),make('span','',choice));b.addEventListener('click',()=>{if(!activeDebate)return;wrap.querySelectorAll('.option-btn').forEach((j,k)=>{j.disabled=true;if(k===c.correct)j.classList.add('correct');else if(k===i)j.classList.add('wrong');});const yes=i===c.correct;bot((yes?'✅ Em phản biện chính xác! ':'❗ Chưa chính xác, hãy xem lại lập luận. ')+c.explain);if(yes){state.debateDone[current.ch]=true;save();updateProgress();}activeDebate=false;});wrap.append(b);});bot('AI đôi khi đưa ra lời giải sai. Hãy tự kiểm chứng và chọn lời phản biện hợp lí nhất.',wrap);}
+function numberFmt(x){if(Math.abs(x)<1e-11)x=0;const y=Number(x.toFixed(6));return String(y).replace('.',',');}
+function parseAlgebra(expr,varnames){let s=String(expr).toLowerCase().replace(/[−–]/g,'-').replace(/[²]/g,'^2').replace(/\s/g,'').replace(/,/g,'.').replace(/\*/g,'');if(!s)return null;let parts=s.replace(/-/g,'+-').split('+').filter(Boolean),res={x2:0,x:0,y:0,c:0};for(let part of parts){let match=part.match(/^(-?\d*\.?\d*)(x\^2|x|y)?$/);if(!match)return null;let [,n,key]=match;const k=n===''?1:n==='-'?-1:Number(n);if(!Number.isFinite(k))return null;key=key||'c';if(key==='x^2')key='x2';if(!varnames.includes(key)&&key!=='c')return null;res[key]+=k;}return res;}
+function extractEq(text){return String(text).replace(/^(?:\s*(?:giải\s+hệ|giải(?:\s+phương\s+trình)?|pt|phương\s+trình|tìm\s+x|tinh\s+x)\s*[:：]?\s*)/iu,'').trim();}
+function solvePolynomial(input){let raw=extractEq(input).replace(/\s*[?.！!]+$/,'');if(!raw.includes('=')||!/[xX]/.test(raw)||/[yY]/.test(raw))return null;const sides=raw.split('=');if(sides.length!==2)return null;let l=parseAlgebra(sides[0],['x','x2']),r=parseAlgebra(sides[1],['x','x2']);if(!l||!r)return null;const a=l.x2-r.x2,b=l.x-r.x,c=l.c-r.c;if(Math.abs(a)<1e-10&&Math.abs(b)<1e-10)return Math.abs(c)<1e-10?'Hai vế tương đương: phương trình đúng với mọi số thực.':'Hai vế mâu thuẫn: phương trình vô nghiệm.';
+if(Math.abs(a)<1e-10)return `Đưa về dạng ${numberFmt(b)}x + (${numberFmt(c)}) = 0.\nChuyển vế: ${numberFmt(b)}x = ${numberFmt(-c)}.\nSuy ra x = ${numberFmt(-c/b)}.\nHãy thử thay nghiệm vào đề bài để kiểm tra.`;
+const d=b*b-4*a*c,head=`Đưa về ax² + bx + c = 0:\na = ${numberFmt(a)}, b = ${numberFmt(b)}, c = ${numberFmt(c)}.\nΔ = b² − 4ac = ${numberFmt(d)}.\n`;if(d< -1e-10)return head+'Vì Δ < 0, phương trình không có nghiệm thực.';if(Math.abs(d)<1e-10)return head+`Vì Δ = 0, nghiệm kép x = −b/(2a) = ${numberFmt(-b/(2*a))}.`;return head+`Vì Δ > 0, phương trình có hai nghiệm:\nx₁ = (−b − √Δ)/(2a) ≈ ${numberFmt((-b-Math.sqrt(d))/(2*a))}\nx₂ = (−b + √Δ)/(2a) ≈ ${numberFmt((-b+Math.sqrt(d))/(2*a))}.\n(Nếu Δ là số chính phương thì có thể rút gọn nghiệm về dạng chính xác.)`;}
+function solveSystem(input){const raw=extractEq(input).replace(/\n/g,';');const seg=raw.split(';').map(s=>s.trim()).filter(Boolean);if(seg.length!==2||!seg.every(s=>s.includes('=')&&/[xy]/i.test(s)))return null;const parsed=seg.map(s=>{const parts=s.split('=');if(parts.length!==2)return null;let a=parseAlgebra(parts[0],['x','y']),b=parseAlgebra(parts[1],['x','y']);if(!a||!b)return null;return {x:a.x-b.x,y:a.y-b.y,c:b.c-a.c};});if(parsed.some(x=>!x))return null;const [p,q]=parsed,d=p.x*q.y-q.x*p.y,dx=p.c*q.y-q.c*p.y,dy=p.x*q.c-q.x*p.c;const pre=`Đưa hệ về dạng a₁x + b₁y = c₁ và a₂x + b₂y = c₂.\nD = a₁b₂ − a₂b₁ = ${numberFmt(d)}.\n`;if(Math.abs(d)>1e-10)return pre+`Tính được x = ${numberFmt(dx/d)}, y = ${numberFmt(dy/d)}.\nEm hãy thế lại vào cả hai phương trình để kiểm tra.`;return pre+(Math.abs(dx)<1e-10&&Math.abs(dy)<1e-10?'D = 0, hệ có vô số nghiệm (hai phương trình tương đương).':'D = 0 nhưng tử số không cùng bằng 0, hệ vô nghiệm.');}
+function detectLesson(message){let raw=norm(message),explicit=raw.match(/\bbai\s*(\d{1,2})\b/);if(explicit){let lesson=lessons.find(x=>x.id===Number(explicit[1]));if(lesson)return lesson;}
+const paths=[
+[/phuong trinh bac hai|cong thuc nghiem|biet thuc|delta/,19],
+[/giai he|he phuong trinh/,2],[/lap he phuong trinh/,3],
+[/bat phuong trinh/,6],[/bat dang thuc/,5],
+[/can bac ba|can thuc bac ba/,10],[/rut gon can|bien doi can/,9],[/khai can|phep nhan can/,8],[/can bac hai|can thuc/,7],
+[/sin|cos|tan|cot|luong giac/,11],[/he thuc luong|do chieu cao/,12],
+[/do dai cung|hinh quat|vanh khuyen/,15],[/cung va day|do dai day/,14],[/vi tri.*hai duong tron/,17],[/tiep tuyen|cat tuyen/,16],
+[/ham so.*ax|parabol|do thi ham so bac hai/,18],[/vi.e?te|tong va tich nghiem/,20],
+[/ghep nhom/,24],[/tan so tuong doi/,23],[/tan so|bieu do tan so/,22],
+[/khong gian mau|phep thu ngau nhien/,25],[/xac suat/,26],
+[/goc noi tiep/,27],[/tu giac noi tiep/,29],[/duong tron ngoai tiep|duong tron noi tiep/,28],[/da giac deu|luc giac deu|bat giac deu/,30],
+[/hinh cau|mat cau/,32],[/hinh tru|hinh non/,31],[/duong tron/,13]
+];for(const [pattern,id] of paths){if(pattern.test(raw))return lessons[id-1];}
+let scoreBest=0,match=null;for(const l of lessons){let ch=chapters.find(x=>x.id===l.ch),keys=norm(l.title+' '+l.keys).split(/[,; ]+/).filter(w=>w.length>=4);let fragments=(l.keys+'|'+l.title).split(/\||,|;/).map(norm).filter(s=>s.length>=5);let score=0;for(const f of fragments){if(raw.includes(f))score+=f.length>12?5:3;}for(const k of new Set(keys)){if(raw.includes(k))score+=.15;}if(score>scoreBest){match=l;scoreBest=score;}}return scoreBest>=3?match:null;}
+function handleQuestion(input){const s=input.trim();if(!s)return;addMessage('user',s);$('chatInput').value='';$('chatInput').style.height='';const n=norm(s);
+if(/^(goi y|hint|tung buoc)/.test(n)){giveHint();return;}if(/^(xem loi giai|dap an|giai mau)$/.test(n)){if(activeQuiz)revealQuiz();else showExample();return;}if(/^(luyen tap|bai tap|cho bai tap|kiem tra)$/.test(n)){startQuiz();return;}if(/^(phan bien|bat loi|ai sai)/.test(n)){startDebate();return;}if(/^(vi du|vi du mau|lam mau)$/.test(n)){showExample();return;}if(/^(ly thuyet|kien thuc|cong thuc|tom tat|on tap)$/.test(n)){showTheory();return;}
+if(activeQuiz&& !/(?:^giai\s|^he\s|^phuong trinh\s|\bbai\s+\d+)/.test(n)){submitQuiz(s,true);return;}
+if(/[=]/.test(s)&&/[xy]/i.test(s)){const solver=solveSystem(s)||solvePolynomial(s);if(solver){bot('Mình cùng phân tích từng bước nhé:\n'+solver);return;}}
+const detected=detectLesson(s);if(detected&&detected.id!==current.id){viewLesson(detected.id,false);bot(`Câu hỏi này liên quan đến Bài ${detected.id}: ${detected.title}. Mình đã chuyển tới đúng bài. Dưới đây là tóm tắt để em bắt đầu.`);showTheory();return;}
+if(/(giai thich|the nao|la gi|tai sao|cho biet|noi dung|tom tat|biet gi|ly thuyet|cong thuc|kien thuc)/.test(n)){showTheory();return;}
+if(/(vi du|minh hoa|cach lam|giai bai|giai mau)/.test(n)){showExample();return;}
+if(/(luyen|bai tap|thuc hanh|trac nghiem|kiem tra)/.test(n)){startQuiz();return;}
+if(/(phan bien|loi sai|dung hay sai|nhan xet ai)/.test(n)){startDebate();return;}
+if(/(chao|hello|xin chao|hi math)/.test(n)){bot('Chào em! Hãy chọn bài ở cột bên trái và thử hỏi “giải thích”, “ví dụ”, “luyện tập”. Chúng ta học từng bước nhé!');return;}
+bot('Mình chưa đủ dữ liệu để giải chắc chắn câu hỏi tự do này. Đây là chatbot ngoại tuyến theo bài học và quy tắc, không phải AI đang truy cập Internet.\n\nEm có thể:\n• Chọn đúng Bài 1–32 trong danh mục.\n• Gõ “kiến thức”, “ví dụ”, “luyện tập”, “phản biện”.\n• Nhập phương trình dạng x² − 5x + 6 = 0 hoặc hệ x+y=7; x−y=1.\nNếu là bài có hình vẽ, em hãy đối chiếu trực tiếp với SGK hoặc hỏi giáo viên.');}
+function menuToggle(){const isOpen=$('sidebar').classList.toggle('open');$('sideOverlay').classList.toggle('show',isOpen);$('menuBtn').setAttribute('aria-expanded',String(isOpen));}
+function closeMenu(){$('sidebar').classList.remove('open');$('sideOverlay').classList.remove('show');$('menuBtn').setAttribute('aria-expanded','false');}
+function clearChat(){activeQuiz=null;activeDebate=null;$('messages').replaceChildren();bot(`Đã bắt đầu cuộc trò chuyện mới. Bài đang chọn: Bài ${current.id} – ${current.title}.`);}
+function downloadProgress(){const payload={app:'MathMate 9',curriculum:'SGK Toán 9 - Kết nối tri thức',savedAt:new Date().toISOString(),totalLessons:32,progress:state};const file=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(file),link=document.createElement('a');link.href=url;link.download='tien-do-hoc-toan-9.json';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),500);toast('Đã xuất tệp tiến độ.');}
+$('topicSearch').addEventListener('input',renderNav);$('menuBtn').addEventListener('click',menuToggle);$('sideOverlay').addEventListener('click',closeMenu);
+$('sendBtn').addEventListener('click',()=>handleQuestion($('chatInput').value));$('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleQuestion($('chatInput').value);}});$('chatInput').addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(126,this.scrollHeight)+'px';});
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.mode==='learn')showTheory();if(b.dataset.mode==='practice')startQuiz();if(b.dataset.mode==='debate')startDebate();}));document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>({theory:showTheory,example:showExample,practice:startQuiz,debate:startDebate})[b.dataset.action]()));
+$('clearBtn').addEventListener('click',clearChat);$('exportBtn').addEventListener('click',downloadProgress);$('resetBtn').addEventListener('click',()=>{if(!confirm('Xóa tiến độ đã lưu trên trình duyệt này?'))return;state.solved={};state.debateDone={};state.correct=0;state.attempts=0;state.seq={};save();updateProgress();renderNav();toast('Đã đặt lại tiến độ.');});
+$('themeBtn').addEventListener('click',()=>{state.theme=state.theme==='night'?'light':'night';document.body.classList.toggle('night',state.theme==='night');$('themeBtn').textContent=state.theme==='night'?'☀':'☾';save();});
+document.body.classList.toggle('night',state.theme==='night');$('themeBtn').textContent=state.theme==='night'?'☀':'☾';
+viewLesson(current.id,false);updateProgress();const welcome=make('div');welcome.append(make('div','strong-title','Xin chào! 👋 Mình là MathMate 9.'));
+welcome.append(make('div','small-body','Mình giúp em ôn đủ 32 bài trong 10 chương của sách Toán 9 – Kết nối tri thức. Em có thể học lí thuyết, xem ví dụ, thử giải bài tập, nhận gợi ý theo bước và phản biện lời giải sai.'));
+const cards=make('div','btn-row');cards.append(actionButton('📘 Khám phá bài học',()=>showTheory(),'btn'),actionButton('✍ Thử bài đầu tiên',()=>startQuiz()),actionButton('⚑ Phản biện AI',()=>startDebate(),'warn'));welcome.append(cards);
+bot('',welcome);
+window.mathMate9Test={numericValue,checkAnswer,solvePolynomial,solveSystem,lessons,chapters,critiques};
+})();
+</script>
+</body>
+</html>
